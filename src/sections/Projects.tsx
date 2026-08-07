@@ -1,78 +1,94 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Arrow } from '../components/Arrow'
-import { Reveal, Letters } from '../components/Reveal'
-import { data, EASE } from '../utils'
+import { motion } from "framer-motion";
+import { ArrowUpRight, ImagePlus } from "lucide-react";
+import { data, EASE } from "../utils";
 
-export function Projects() {
-  const [cursor, setCursor] = useState({ visible: false, x: 0, y: 0 })
-  const [hovered, setHovered] = useState(-1)
+const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
+function ProjectImage({
+  title,
+  src,
+}: {
+  title: string;
+  src: string;
+}) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={title}
+        loading="lazy"
+        className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+      />
+    );
+  }
   return (
-    <section id="work" className="px-6 py-32 md:px-10 xl:px-16">
-      <div className="mx-auto max-w-[1440px]">
-        <div className="mb-20 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <Reveal>
-            <p className="label mb-6 text-sub">Selected work</p>
-            <h2 className="font-serif text-[clamp(2.5rem,5vw,5rem)] leading-[1.02] tracking-tight">
-              <Letters text="Work that speaks" />
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <a
-              href="#contact"
-              className="label link-underline inline-flex items-center gap-2 text-ink"
-            >
-              All projects <Arrow size={16} />
-            </a>
-          </Reveal>
+    <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-4 border-2 border-dashed border-white/10 bg-gradient-to-br from-[#242424] to-[#1b1b1b] px-6 text-center">
+      <ImagePlus size={30} strokeWidth={1.5} className="text-white/25" />
+      <p className={`${FONT} text-lg font-bold text-white/30`}>{title}</p>
+      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/20">
+        project image
+      </p>
+    </div>
+  );
+}
+
+export default function Projects() {
+  return (
+    <section id="projects" className="w-full bg-[#1C1C1C] px-6 py-16 sm:px-14 sm:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10% 0px" }}
+        transition={{ duration: 0.8, ease: EASE }}
+        className="mb-10 sm:mb-14"
+      >
+        <div className="flex items-center gap-2 text-[#CFFF04]">
+          <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
+          <ArrowUpRight size={16} strokeWidth={2.5} />
         </div>
+        <h2 className={`${FONT} mt-8 font-black tracking-tight text-white leading-none text-4xl sm:text-6xl`}>
+          our <span className="text-[#FF2E91]">work</span>
+        </h2>
+      </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 gap-x-8 gap-y-24 md:grid-cols-2"
-          onMouseMove={(e) => setCursor({ visible: true, x: e.clientX, y: e.clientY })}
-          onMouseLeave={() => setCursor((c) => ({ ...c, visible: false }))}
-        >
-          {data.projects.map((project, i) => (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10% 0px' }}
-              transition={{ duration: 1, ease: EASE, delay: (i % 2) * 0.1 }}
-              className={`group cursor-pointer ${i % 3 === 1 ? 'md:mt-28' : ''}`}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(-1)}
-            >
-              <div className="mb-6 flex items-baseline justify-between gap-4">
-                <h3 className="font-serif text-2xl tracking-tight md:text-3xl">{project.title}</h3>
-                <span className="label text-sub">{project.year}</span>
-              </div>
-              <div className="overflow-hidden rounded-[20px]">
-                <img
-                  src={project.src}
-                  alt={project.title}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                />
-              </div>
-              <p className="label mt-5 flex items-center justify-between text-sub">
-                {project.category}
-                <Arrow size={18} hovered={hovered === i} />
-              </p>
-            </motion.article>
-          ))}
-        </motion.div>
-
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none fixed z-50 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-ink px-6 py-3 lg:flex"
-          animate={{ left: cursor.x, top: cursor.y, opacity: cursor.visible ? 1 : 0, scale: cursor.visible ? 1 : 0.6 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-        >
-          <span className="label text-paper">View</span>
-        </motion.div>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {data.projects.map((project, i) => (
+          <motion.article
+            key={project.title}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-8% 0px" }}
+            transition={{ duration: 0.7, ease: EASE, delay: (i % 3) * 0.12 }}
+            className="group"
+          >
+            <div className="relative overflow-hidden rounded-[24px]">
+              <ProjectImage title={project.title} src={project.src} />
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${project.title}`}
+                  className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#CFFF04] text-[#1b1b1b] shadow-lg transition-transform duration-300 hover:scale-110"
+                >
+                  <ArrowUpRight size={20} strokeWidth={2} />
+                </a>
+              )}
+            </div>
+            <div className="mt-5 flex items-baseline justify-between gap-4">
+              <h3
+                className={`${FONT} text-lg font-bold text-white transition-colors duration-300 group-hover:text-[#CFFF04] sm:text-xl`}
+              >
+                {project.title}
+              </h3>
+              <span className="text-xs font-bold uppercase tracking-widest text-white/50">
+                {project.year}
+              </span>
+            </div>
+            <p className="mt-1 text-sm font-medium text-[#CFFF04]">{project.category}</p>
+          </motion.article>
+        ))}
       </div>
     </section>
-  )
+  );
 }

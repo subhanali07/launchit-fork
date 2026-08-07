@@ -19,23 +19,23 @@ export const data = {
   services: [
     {
       num: '01',
-      title: 'Web Development',
-      desc: 'Custom websites and web applications built with cutting-edge technologies for seamless user experiences.',
+      title: 'Web Design',
+      desc: 'Custom websites engineered to convert, from landing pages to full-scale web experiences, built for speed, elegance and results.',
     },
     {
       num: '02',
-      title: 'Social Media Services',
-      desc: 'Strategic social media management, content creation, and community engagement to grow your brand presence.',
+      title: 'E-commerce',
+      desc: 'High-converting online stores built to sell. From product catalogs to seamless checkout, e-commerce experiences that turn visitors into customers.',
     },
     {
       num: '03',
-      title: 'SEO Optimization',
-      desc: 'Comprehensive search engine optimization strategies to improve visibility and drive organic traffic.',
+      title: 'SaaS',
+      desc: 'Scalable web applications and SaaS platforms designed to grow. We turn complex features into simple, fast products users love.',
     },
     {
       num: '04',
-      title: 'Brand Identity',
-      desc: 'Strategy, naming and visual systems that give ambitious companies a voice with gravity.',
+      title: 'Social Media',
+      desc: 'Strategic social media management, content creation, and community engagement to grow your brand presence.',
     },
   ],
   projects: [
@@ -43,43 +43,49 @@ export const data = {
       title: 'Aurora Archive',
       category: 'Brand · Web',
       year: '2026',
-      src: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1200&q=80',
+      url: '#',
+      src: '',
     },
     {
       title: 'Mono House',
       category: 'E-commerce',
       year: '2025',
-      src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80',
+      url: '#',
+      src: '',
     },
     {
       title: 'Terrain Journal',
       category: 'Editorial',
       year: '2025',
-      src: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80',
+      url: '#',
+      src: '',
     },
     {
       title: 'Forma Studio',
       category: 'Identity · Web',
       year: '2024',
-      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+      url: '#',
+      src: '',
     },
     {
       title: 'Kaskar',
       category: 'Product',
       year: '2024',
-      src: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=80',
+      url: '#',
+      src: '',
     },
     {
       title: 'Nocturne',
       category: 'Motion',
       year: '2023',
-      src: 'https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=1200&q=80',
+      url: '#',
+      src: '',
     },
   ],
   awards: [
-    { year: '2026', name: 'Awwwards — Site of the Day', detail: 'Aurora Archive' },
+    { year: '2026', name: 'Awwwards, Site of the Day', detail: 'Aurora Archive' },
     { year: '2025', name: 'FWA of the Month', detail: 'Mono House' },
-    { year: '2025', name: 'CSS Design Awards — Best UI', detail: 'Terrain Journal' },
+    { year: '2025', name: 'CSS Design Awards, Best UI', detail: 'Terrain Journal' },
     { year: '2024', name: 'Webby Nominee', detail: 'Forma Studio' },
   ],
   process: [
@@ -124,4 +130,74 @@ export const data = {
       role: 'Head of Product, Kaskar',
     },
   ],
+  writings: [
+    {
+      title: 'How we launched Mono House in 30 days',
+      tag: 'Case Study',
+      date: 'Mar 2026',
+      read: '8 min read',
+      excerpt:
+        'From first call to live store, the exact process we use to ship e-commerce sites that convert.',
+      slug: 'mono-house-launch',
+    },
+    {
+      title: 'Why your brand needs a presence, not just a website',
+      tag: 'Blog',
+      date: 'Feb 2026',
+      read: '5 min read',
+      excerpt:
+        'A website is only the start. Here is how we turn it into a presence people actually remember.',
+      slug: 'presence-not-website',
+    },
+    {
+      title: 'SEO in 2026: what actually still works',
+      tag: 'Blog',
+      date: 'Jan 2026',
+      read: '7 min read',
+      excerpt:
+        'Forget the hacks. These are the fundamentals that keep driving organic traffic this year.',
+      slug: 'seo-in-2026',
+    },
+  ],
+  faqs: [
+    {
+      question: 'What services do you offer?',
+      answer:
+        'We design and build e-commerce stores, portfolio sites, SaaS platforms and social media presences, plus the SEO that gets them found.',
+    },
+    {
+      question: 'How much does a project cost?',
+      answer:
+        'Every project is scoped individually. Share what you are building and we will come back with a clear quote within two working days.',
+    },
+    {
+      question: 'How long does a project take?',
+      answer:
+        'A typical website ships in 2–6 weeks depending on scope. E-commerce and SaaS builds are planned milestone by milestone so you always know where things stand.',
+    },
+    {
+      question: 'Do you work with clients remotely?',
+      answer:
+        'Yes, we work with clients all over the world. Everything happens over calls, shared boards and live previews, so you are in the loop the whole time.',
+    },
+    {
+      question: 'What do you need from me to get started?',
+      answer:
+        'Just a rough idea of your goals, brand and timeline. We handle strategy, design, build and launch from there.',
+    },
+    {
+      question: 'Can you help redesign an existing website?',
+      answer:
+        'Absolutely. We can audit, redesign or rebuild a site you already have, without losing your content or rankings in the process.',
+    },
+  ],
+}
+
+export type Writing = {
+  title: string
+  tag: 'Blog' | 'Case Study'
+  date: string
+  read: string
+  excerpt: string
+  slug: string
 }

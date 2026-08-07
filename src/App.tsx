@@ -1,14 +1,35 @@
-import Hero from "./sections/Hero";
-import Statement from "./sections/Statement";
-import Services from "./sections/Services";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ServicesPage from "./pages/ServicesPage";
+import { Navbar } from "./sections/Navbar";
 
-function App(){
-  return(
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      const el = document.getElementById(hash.slice(1));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
+  return null;
+}
+
+function App() {
+  return (
     <>
-      <Hero />
-      <Statement />
-      <Services />
+      <Navbar />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
     </>
-  )
+  );
 }
 export default App;

@@ -79,7 +79,7 @@ export function Contact() {
             Tell us about your project
           </h2>
           <p className="mt-6 max-w-md text-[18px] leading-relaxed text-sub">
-            We reply to every serious enquiry — usually within two working days.
+            We reply to every serious enquiry, usually within two working days.
           </p>
         </motion.div>
 

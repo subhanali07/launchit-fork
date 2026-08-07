@@ -36,13 +36,13 @@ export function About() {
             <Reveal delay={0.15}>
               <p className="max-w-xl text-[18px] leading-relaxed text-sub">
                 We are an independent creative studio built around a simple
-                belief — restraint is a superpower. We work with founders and
+                belief, restraint is a superpower. We work with founders and
                 brands who want fewer, better decisions, and we sweat the
                 details other teams skip.
               </p>
               <p className="mt-6 max-w-xl text-[18px] leading-relaxed text-sub">
                 Our process is slow at the start and fast at the end. Strategy
-                first, craft always. No bloated teams, no committees — just a
+                first, craft always. No bloated teams, no committees, just a
                 small group of obsessive people doing the best work of their
                 careers.
               </p>
