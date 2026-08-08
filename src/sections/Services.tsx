@@ -12,7 +12,7 @@ import {
 import { EASE } from "../utils";
 
 const TILES = [
-  { title: "Web Design", Icon: LayoutTemplate, bg: "#1C1C1C", text: "#FFFFFF" },
+  { title: "Web Development", Icon: LayoutTemplate, bg: "#1C1C1C", text: "#FFFFFF" },
   { title: "SEO", Icon: TrendingUp, bg: "#CFFF04", text: "#1C1C1C" },
   { title: "E-commerce", Icon: ShoppingBag, bg: "#1C1C1C", text: "#FFFFFF" },
   { title: "Social Media Marketing", Icon: Share2, bg: "#FF2E91", text: "#FFFFFF" },

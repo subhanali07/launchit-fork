@@ -5,7 +5,7 @@ import { Footer } from "../sections/Footer";
 const SERVICES = [
   {
     number: "01",
-    title: "Web Design",
+    title: "Web Development",
     accent: "#CFFF04",
     description:
       "We design and build the website itself, from the first sketch to a live, working site. Every page is custom, fast to load and easy to use on any device.",

@@ -1,3 +1,7 @@
+import blogAgencyImage from '../assets/blog-agency.jpg'
+import blogPresenceImage from '../assets/blog-presence.jpg'
+import blogSeoImage from '../assets/blog-seo.jpg'
+
 export const EASE = [0.16, 1, 0.3, 1] as const
 
 export function cn(...classes: (string | false | null | undefined)[]) {
@@ -19,7 +23,7 @@ export const data = {
   services: [
     {
       num: '01',
-      title: 'Web Design',
+      title: 'Web Development',
       desc: 'Custom websites engineered to convert, from landing pages to full-scale web experiences, built for speed, elegance and results.',
     },
     {
@@ -138,31 +142,124 @@ export const data = {
   ],
   writings: [
     {
-      title: 'How we launched Mono House in 30 days',
-      tag: 'Case Study',
+      title: 'What to Look for in a Web Development Agency (Before You Hire One)',
+      tag: 'Blog',
       date: 'Mar 2026',
-      read: '8 min read',
+      read: '7 min read',
       excerpt:
-        'From first call to live store, the exact process we use to ship e-commerce sites that convert.',
-      slug: 'mono-house-launch',
+        'Hiring a web development agency is a big decision. Here is exactly what to check before you sign, so you do not waste months and money.',
+      slug: 'what-to-look-for-in-a-web-development-agency',
+      image: blogAgencyImage,
+      body: [
+        {
+          heading: 'Portfolio over promises',
+          paragraphs: [
+            'Any agency can talk a good game in the sales call. Look at the actual sites they have shipped. Open them on your phone, run a speed test, check whether the images are optimised. A web development agency\u2019s portfolio is its best reference. If their own clients\u2019 sites are slow or broken, believe what you see.',
+          ],
+        },
+        {
+          heading: 'Ask who does the work',
+          paragraphs: [
+            'Big agencies often hand your project to juniors. Ask who will design and build your site, and whether you get direct access to that person. For a small business website or an e-commerce store, working directly with the person doing the work usually means better quality and clearer communication.',
+          ],
+        },
+        {
+          heading: 'Check their process',
+          paragraphs: [
+            'A serious web design and development agency will talk about discovery, wireframes, content strategy and QA. If the process sounds like \u201cwe will make it look good\u201d, walk away. Good process is what separates a custom website from a template with your logo on it.',
+          ],
+        },
+        {
+          heading: 'Look for results, not features',
+          paragraphs: [
+            'Do not ask how many pages you will get. Ask what kind of results their clients see: faster load times, higher rankings, more sales. A web development agency that cares about performance and SEO will bring numbers, not just mockups.',
+          ],
+        },
+        {
+          heading: 'The bottom line',
+          paragraphs: [
+            'Choosing the right web development agency comes down to proof, process and access. Look at real work, talk to the actual builders and make sure your goals are measurable. Do that, and you will get a website that actually earns its cost.',
+          ],
+        },
+      ],
     },
     {
-      title: 'Why your brand needs a presence, not just a website',
+      title: 'Why Your Business Needs a Web Development Agency, Not Just a Website',
       tag: 'Blog',
       date: 'Feb 2026',
       read: '5 min read',
       excerpt:
-        'A website is only the start. Here is how we turn it into a presence people actually remember.',
-      slug: 'presence-not-website',
+        'A website is only the start. Here is how an agency turns it into a presence people actually remember.',
+      slug: 'web-development-agency-not-just-a-website',
+      image: blogPresenceImage,
+      body: [
+        {
+          heading: 'A website is a document',
+          paragraphs: [
+            'Most websites are documents. They state facts, what you do, where you are, how to reach you, and then they sit there waiting to be looked at. That is not a presence, and it will not win you clients on its own.',
+          ],
+        },
+        {
+          heading: 'Presence is a system',
+          paragraphs: [
+            'A presence is everything that happens around your site: the content you publish, the places people find you, the way you answer questions, the pace at which you show up. A web development agency helps you build the site, then helps you keep it alive with fresh content and steady improvements.',
+          ],
+        },
+        {
+          heading: 'Where most businesses go wrong',
+          paragraphs: [
+            'Businesses invest once in a website and then vanish. The site goes stale, nothing is published, no one updates it. Six months later it feels abandoned, and visitors can tell. Search engines can tell too, and rankings slip.',
+          ],
+        },
+        {
+          heading: 'Hire for the long run',
+          paragraphs: [
+            'The best web design and development agencies think beyond launch day. They set up analytics, train you on your content system and give you a plan for what to publish next. That is what turns a one-time website project into an ongoing presence.',
+          ],
+        },
+      ],
     },
     {
-      title: 'SEO in 2026: what actually still works',
+      title: 'Web Development and SEO: What Actually Still Works in 2026',
       tag: 'Blog',
       date: 'Jan 2026',
       read: '7 min read',
       excerpt:
         'Forget the hacks. These are the fundamentals that keep driving organic traffic this year.',
-      slug: 'seo-in-2026',
+      slug: 'web-development-and-seo-2026',
+      image: blogSeoImage,
+      body: [
+        {
+          heading: 'The fundamentals never stopped working',
+          paragraphs: [
+            'Every year there is a new algorithm scare, and every year the basics still win: clear structure, real content, fast pages and links from places that matter. A web development agency that understands SEO builds those fundamentals into the site from day one.',
+          ],
+        },
+        {
+          heading: 'Content that answers, not fills',
+          paragraphs: [
+            'Search engines understand intent better than ever. Write pages that actually answer the question someone typed. Thin, keyword-stuffed filler is penalised harder than ever, so publish genuinely useful content instead.',
+          ],
+        },
+        {
+          heading: 'Speed is a ranking factor, period',
+          paragraphs: [
+            'Core Web Vitals are part of ranking. A site that loads in two seconds will outrank a slower one with better content, every time. That is why performance belongs in the design and build phase, not bolted on later.',
+          ],
+        },
+        {
+          heading: 'Technical SEO is a build decision',
+          paragraphs: [
+            'Clean URLs, fast image delivery, proper heading structure, a working sitemap. These are not afterthoughts. When a web development agency builds for SEO from the start, the site ranks faster and needs fewer fixes.',
+          ],
+        },
+        {
+          heading: 'The bottom line',
+          paragraphs: [
+            'SEO is not a one-off task. It is a slow, compounding discipline. The sites that win are the ones that treat it like a habit, not a campaign.',
+          ],
+        },
+      ],
     },
   ],
   faqs: [
@@ -206,4 +303,6 @@ export type Writing = {
   read: string
   excerpt: string
   slug: string
+  image: string
+  body: { heading: string; paragraphs: string[] }[]
 }

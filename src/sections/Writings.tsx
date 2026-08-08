@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { data, EASE } from "../utils";
 
@@ -38,34 +39,49 @@ export default function Writings() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 0.7, ease: EASE, delay: (i % 3) * 0.1 }}
-            className="group flex flex-col bg-[#1C1C1C] p-8 transition-colors duration-300 hover:bg-[#242424] sm:p-10"
+            className="group flex flex-col bg-[#1C1C1C] transition-colors duration-300 hover:bg-[#242424]"
           >
-            <div className="flex items-center justify-between gap-4">
-              <span
-                className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${TAG_STYLES[writing.tag]}`}
-              >
-                {writing.tag}
-              </span>
-              <span className="text-xs font-medium text-white/40">{writing.date}</span>
-            </div>
+            <Link to={`/writings/${writing.slug}`} className="flex h-full flex-col">
+              <div className="relative overflow-hidden">
+                <img
+                  src={writing.image}
+                  alt={writing.title}
+                  loading="lazy"
+                  className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                />
+                <span
+                  className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${TAG_STYLES[writing.tag]}`}
+                >
+                  {writing.tag}
+                </span>
+              </div>
 
-            <h3
-              className={`${FONT} mt-8 text-xl font-bold leading-tight text-white transition-colors duration-300 group-hover:text-[#CFFF04] sm:text-2xl`}
-            >
-              {writing.title}
-            </h3>
-            <p className="mt-4 text-sm leading-relaxed text-white/60 sm:text-[15px]">
-              {writing.excerpt}
-            </p>
+              <div className="flex flex-1 flex-col p-8 sm:p-10">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-xs font-medium text-white/40">
+                    {writing.date}
+                  </span>
+                </div>
 
-            <div className="mt-auto flex items-center justify-between pt-8">
-              <span className="text-xs font-medium uppercase tracking-widest text-white/40">
-                {writing.read}
-              </span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-300 group-hover:border-[#CFFF04] group-hover:bg-[#CFFF04] group-hover:text-[#1b1b1b]">
-                <ArrowUpRight size={18} strokeWidth={2} />
-              </span>
-            </div>
+                <h3
+                  className={`${FONT} mt-4 text-xl font-bold leading-tight text-white transition-colors duration-300 group-hover:text-[#CFFF04] sm:text-2xl`}
+                >
+                  {writing.title}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-white/60 sm:text-[15px]">
+                  {writing.excerpt}
+                </p>
+
+                <div className="mt-auto flex items-center justify-between pt-8">
+                  <span className="text-xs font-medium uppercase tracking-widest text-white/40">
+                    {writing.read}
+                  </span>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-300 group-hover:border-[#CFFF04] group-hover:bg-[#CFFF04] group-hover:text-[#1b1b1b]">
+                    <ArrowUpRight size={18} strokeWidth={2} />
+                  </span>
+                </div>
+              </div>
+            </Link>
           </motion.article>
         ))}
       </div>
