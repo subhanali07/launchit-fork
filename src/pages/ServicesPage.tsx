@@ -8,6 +8,7 @@ import {
   Briefcase,
   Rocket,
 } from "lucide-react";
+import { Footer } from "../sections/Footer";
 
 const SERVICES = [
   {
@@ -144,6 +145,7 @@ export default function ServicesPage() {
           </Link>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

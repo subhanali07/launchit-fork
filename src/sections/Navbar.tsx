@@ -5,10 +5,11 @@ import { cn } from '../utils'
 
 const NAV_ITEMS = [
   { label: 'HOME', number: '02', to: '/' },
-  { label: 'PROJECTS', number: '10', to: '/#projects' },
   { label: 'SERVICES', number: '12', to: '/services' },
+  { label: 'ABOUT', number: '14', to: '/#about' },
+  { label: 'PROJECTS', number: '10', to: '/#projects' },
   { label: 'FAQS', number: '16', to: '/#faqs' },
-  { label: 'CONTACT US', number: '19', to: '/#contact' },
+  { label: 'CONTACT US', number: '19', to: '/contact' },
 ]
 
 export function Navbar() {
