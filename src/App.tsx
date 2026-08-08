@@ -7,6 +7,7 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import { Navbar } from "./sections/Navbar";
 import { CookieConsent } from "./components/CookieConsent";
+import { Seo } from "./components/Seo";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -26,6 +27,7 @@ function ScrollToTop() {
 function App() {
   return (
     <>
+      <Seo />
       <Navbar />
       <ScrollToTop />
       <Routes>

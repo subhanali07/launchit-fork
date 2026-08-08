@@ -26,7 +26,8 @@ export function Footer() {
               launchit<span className="text-[#CFFF04]">.</span>
             </Link>
             <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-white/60">
-              An independent creative studio for new startups :3
+              A web development agency building custom sites, stores and SEO for
+              new startups :3
             </p>
             <a
               href="mailto:hello@launchit.com"

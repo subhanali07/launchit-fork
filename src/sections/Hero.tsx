@@ -24,7 +24,7 @@ function Hero() {
             transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
             className="text-xs font-bold uppercase tracking-[0.35em] text-black/50 sm:text-sm"
           >
-            creative agency
+            web development &amp; creative agency
           </motion.p>
 
           <motion.h1
@@ -42,7 +42,8 @@ function Hero() {
             transition={{ duration: 0.9, ease: EASE, delay: 0.4 }}
             className="mt-7 max-w-sm text-base font-medium leading-relaxed text-black/70 sm:text-lg"
           >
-            Creating your brand presence from web to social media.
+            A web development agency building custom websites, e-commerce stores
+            and SEO - crafted from web to social.
           </motion.p>
 
           <motion.a
