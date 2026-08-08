@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { EASE } from "../utils";
@@ -54,16 +54,16 @@ function VideoTile({
 
 function Marquee() {
   return (
-    <div className="mt-10 overflow-hidden border-y border-white/10 py-4 sm:mt-14 sm:py-5">
+    <div className="mt-8 overflow-hidden border-y border-white/10 py-4 sm:mt-10 sm:py-5">
       <motion.div
-        className="flex w-max shrink-0 items-center gap-8"
+        className="flex w-max shrink-0 items-center gap-5"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 18, ease: "linear", repeat: Infinity }}
+        transition={{ duration: 22, ease: "linear", repeat: Infinity }}
       >
         {[...MARQUEE_WORDS, ...MARQUEE_WORDS].map((word, i) => (
           <span
             key={`${word}-${i}`}
-            className={`${FONT} flex shrink-0 items-center gap-8 text-2xl font-black uppercase tracking-tight text-white/20 sm:text-3xl`}
+            className={`${FONT} flex shrink-0 items-center gap-5 text-2xl font-black uppercase tracking-tight text-white/20 sm:text-3xl`}
           >
             {word}
             <span className="text-[#CFFF04]">*</span>
@@ -78,25 +78,15 @@ export default function About() {
   const [colorIndex, setColorIndex] = useState(0);
 
   return (
-    <section id="about" className="w-full bg-[#1C1C1C] px-6 py-16 sm:px-14 sm:py-24">
+    <section id="about" className="w-full bg-[#1C1C1C] px-6 py-12 sm:px-14 sm:py-16">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10% 0px" }}
         transition={{ duration: 0.8, ease: EASE }}
-        className="rounded-[32px] border border-white/10 bg-white/[0.03] px-6 py-10 sm:px-12 sm:py-16"
+        className="px-0"
       >
-        <div className="flex items-center gap-2 text-[#CFFF04]">
-          <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
-          <ArrowUpRight size={16} strokeWidth={2.5} />
-        </div>
-        <h2
-          className={`${FONT} mt-4 font-black tracking-tight text-white leading-none text-4xl sm:text-6xl`}
-        >
-          about <span className="text-[#5D00FF]">us</span>
-        </h2>
-
-        <div className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -104,8 +94,15 @@ export default function About() {
             transition={{ duration: 0.7, ease: EASE }}
             className="flex flex-col justify-center"
           >
+            <div className="flex items-center gap-2 text-[#CFFF04]">
+              <span className="h-[3px] w-20 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-32" />
+              <ArrowUpRight size={16} strokeWidth={2.5} />
+            </div>
+            <span className="mt-6 text-xs font-bold uppercase tracking-widest text-[#5D00FF]">
+              about us
+            </span>
             <h3
-              className={`${FONT} max-w-xl text-3xl font-black leading-[1.05] tracking-tight sm:text-5xl`}
+              className={`${FONT} mt-3 max-w-xl text-3xl font-black leading-[1.05] tracking-tight sm:text-5xl`}
             >
               <span className="text-white">in the age of ai slop,</span>
               <br />
@@ -125,7 +122,8 @@ export default function About() {
               sweat the details other teams skip.
             </p>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/60 sm:text-base">
-              We focus on builduing secure and cool sites for your product that actually sells
+              Every site we build is fast, secure and made to convert, without
+              losing the craft that makes it worth looking at twice.
             </p>
           </motion.div>
 
@@ -167,25 +165,7 @@ export default function About() {
 
         <Marquee />
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-8% 0px" }}
-          transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-          className="mt-12 sm:mt-16"
-        >
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-3 rounded-full bg-[#CFFF04] px-8 py-4 text-base font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.03]"
-          >
-            Contact us
-            <ArrowUpRight
-              size={18}
-              strokeWidth={2.5}
-              className="text-[#FF2E91] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </Link>
-        </motion.div>
+        
       </motion.div>
     </section>
   );

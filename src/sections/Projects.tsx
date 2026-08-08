@@ -45,7 +45,7 @@ function ProjectMedia({
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full bg-[#1C1C1C] px-6 py-16 sm:px-14 sm:py-24">
+    <section id="projects" className="w-full bg-[#1C1C1C] px-6 pt-12 pb-16 sm:px-14 sm:pt-16 sm:pb-24">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
