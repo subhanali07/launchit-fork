@@ -83,16 +83,6 @@ const SERVICES = [
   },
 ];
 
-const STACK = [
-  "React",
-  "TypeScript",
-  "Vite",
-  "Tailwind CSS",
-  "Framer Motion",
-  "Three.js",
-  "REST APIs",
-];
-
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
 export default function ServicesPage() {
@@ -176,27 +166,6 @@ export default function ServicesPage() {
             );
           })}
         </div>
-
-        <section className="mt-20 border-t border-white/10 pt-12">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#CFFF04]">
-            tech stack
-          </p>
-          <h2
-            className={`${FONT} mt-3 text-[clamp(1.8rem,4vw,3rem)] font-black leading-none tracking-[-0.04em]`}
-          >
-            built with modern web tech
-          </h2>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {STACK.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/70 transition-colors duration-300 hover:border-[#CFFF04] hover:text-[#CFFF04]"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </section>
       </main>
 
       <section className="rounded-t-[34px] bg-[#CFFF04] px-6 py-20 text-[#1b1b1b] sm:px-10 sm:py-28">
