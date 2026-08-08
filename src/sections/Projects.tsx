@@ -7,7 +7,6 @@ import ecommerceSite from "../assets/ecommerce-site.mp4";
 import resumeBuilder from "../assets/resume-builder.mp4";
 import magurilife from "../assets/magurilife.mp4";
 import subhan from "../assets/subhan.mp4";
-import aleezaVercelPortfolio from "../assets/aleeza-vercel-portfolio.mp4";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
@@ -17,7 +16,6 @@ const VIDEOS: Record<string, { src: string }> = {
   "naqsh-resume": { src: resumeBuilder },
   "meguri-life": { src: magurilife },
   "subhan-portfolio": { src: subhan },
-  "aleeza-portfolio": { src: aleezaVercelPortfolio },
 };
 
 function ProjectMedia({
@@ -62,7 +60,7 @@ export default function Projects() {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-wrap justify-center gap-6">
         {data.projects.map((project, i) => (
           <motion.article
             key={project.slug}
@@ -70,7 +68,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 0.7, ease: EASE, delay: (i % 3) * 0.12 }}
-            className="group flex flex-col"
+            className="group flex w-full flex-col sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
           >
             <div className="relative overflow-hidden rounded-[24px]">
               <ProjectMedia title={project.title} video={VIDEOS[project.slug]} />

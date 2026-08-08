@@ -83,14 +83,6 @@ export const data = {
       url: 'https://subhanali.xyz/',
       tags: ['Profile', 'Projects', 'Contact'],
     },
-    {
-      slug: 'aleeza-portfolio',
-      title: 'Portfolio Site',
-      category: 'Personal Site',
-      year: '2026',
-      url: 'https://portfolio-aleeza81.vercel.app/',
-      tags: ['Branding', 'Projects', 'Contact'],
-    },
   ],
   awards: [
     { year: '2026', name: 'Awwwards, Site of the Day', detail: 'Aurora Archive' },
