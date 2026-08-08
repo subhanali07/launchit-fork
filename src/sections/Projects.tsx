@@ -5,13 +5,19 @@ import { data, EASE } from "../utils";
 import portfolioSite from "../assets/portfolio-site.mp4";
 import ecommerceSite from "../assets/ecommerce-site.mp4";
 import resumeBuilder from "../assets/resume-builder.mp4";
+import magurilife from "../assets/magurilife.mp4";
+import subhan from "../assets/subhan.mp4";
+import aleezaVercelPortfolio from "../assets/aleeza-vercel-portfolio.mp4";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
 const VIDEOS: Record<string, { src: string }> = {
-  Portfolio: { src: portfolioSite },
-  Stationary: { src: ecommerceSite },
-  "Naqsh Resume": { src: resumeBuilder },
+  portfolio: { src: portfolioSite },
+  stationary: { src: ecommerceSite },
+  "naqsh-resume": { src: resumeBuilder },
+  "meguri-life": { src: magurilife },
+  "subhan-portfolio": { src: subhan },
+  "aleeza-portfolio": { src: aleezaVercelPortfolio },
 };
 
 function ProjectMedia({
@@ -59,7 +65,7 @@ export default function Projects() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data.projects.map((project, i) => (
           <motion.article
-            key={project.title}
+            key={project.slug}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
@@ -67,7 +73,7 @@ export default function Projects() {
             className="group flex flex-col"
           >
             <div className="relative overflow-hidden rounded-[24px]">
-              <ProjectMedia title={project.title} video={VIDEOS[project.title]} />
+              <ProjectMedia title={project.title} video={VIDEOS[project.slug]} />
               {project.tags && (
                 <div className="pointer-events-none absolute bottom-3 left-3 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (

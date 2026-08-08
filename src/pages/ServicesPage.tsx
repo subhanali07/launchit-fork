@@ -133,7 +133,6 @@ export default function ServicesPage() {
       <main className="px-6 pb-20 sm:px-10 md:px-[5.5%]">
         <div className="border-t border-white/10">
           {SERVICES.map((service) => {
-            const textColor = service.accent === "#CFFF04" ? "#1C1C1C" : "#FFFFFF";
             return (
               <article
                 key={service.title}

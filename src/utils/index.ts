@@ -40,6 +40,7 @@ export const data = {
   ],
   projects: [
     {
+      slug: 'portfolio',
       title: 'Portfolio',
       category: 'Personal Site',
       year: '2026',
@@ -47,6 +48,7 @@ export const data = {
       tags: ['Branding', 'Motion', 'SEO'],
     },
     {
+      slug: 'stationary',
       title: 'Stationary',
       category: 'E-commerce',
       year: '2026',
@@ -54,11 +56,36 @@ export const data = {
       tags: ['Admin Panel', 'Checkout', 'Payments'],
     },
     {
+      slug: 'naqsh-resume',
       title: 'Naqsh Resume',
       category: 'Web App',
       year: '2026',
       url: 'https://naqshresume.vercel.app/',
       tags: ['Live Preview', 'PDF Export', 'ATS-Ready'],
+    },
+    {
+      slug: 'meguri-life',
+      title: 'Meguri Life',
+      category: 'Services Site',
+      year: '2026',
+      url: 'https://megurilife.vercel.app/',
+      tags: ['Blog', 'Gallery', 'Bilingual'],
+    },
+    {
+      slug: 'subhan-portfolio',
+      title: 'Portfolio Site',
+      category: 'Personal Site',
+      year: '2026',
+      url: 'https://subhanali.xyz/',
+      tags: ['Profile', 'Projects', 'Contact'],
+    },
+    {
+      slug: 'aleeza-portfolio',
+      title: 'Portfolio Site',
+      category: 'Personal Site',
+      year: '2026',
+      url: 'https://portfolio-aleeza81.vercel.app/',
+      tags: ['Branding', 'Projects', 'Contact'],
     },
   ],
   awards: [
