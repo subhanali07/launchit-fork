@@ -5,9 +5,13 @@ import { ArrowUpRight } from "lucide-react";
 import { EASE } from "../utils";
 
 import galaxies from "../assets/galaxies-colliding.mp4";
+import galaxiesPoster from "../assets/galaxies-poster.jpg";
 import fishes from "../assets/fishes.mp4";
+import fishesPoster from "../assets/fishes-poster.jpg";
 import flowers from "../assets/flowers.mp4";
+import flowersPoster from "../assets/flowers-poster.jpg";
 import her from "../assets/her.mp4";
+import herPoster from "../assets/her-poster.jpg";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
@@ -17,11 +21,13 @@ const MARQUEE_WORDS = ["CRAFT", "TASTE", "DETAIL", "OBSESSION", "MOTION"];
 
 function VideoTile({
   src,
+  poster,
   alt,
   rotate,
   className,
 }: {
   src: string;
+  poster?: string;
   alt: string;
   rotate: number;
   className: string;
@@ -33,6 +39,7 @@ function VideoTile({
     >
       <video
         src={src}
+        poster={poster}
         aria-label={alt}
         className="h-full w-full object-cover"
         autoPlay
@@ -118,10 +125,7 @@ export default function About() {
               sweat the details other teams skip.
             </p>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/60 sm:text-base">
-              Galaxies colliding, flowers blooming, motion that stops the
-              scroll, that is the bar we hold our work to. We use every tool,
-              even the machine, but treat it as a spark, never the finish line.
-              Strategy first, craft always.
+              We focus on builduing secure and cool sites for your product that actually sells
             </p>
           </motion.div>
 
@@ -129,12 +133,14 @@ export default function About() {
             <div className="flex flex-col gap-4 sm:gap-6">
               <VideoTile
                 src={galaxies}
+                poster={galaxiesPoster}
                 alt="galaxies colliding"
                 rotate={-2}
                 className="h-52 sm:h-64"
               />
               <VideoTile
                 src={fishes}
+                poster={fishesPoster}
                 alt="fish drifting through water"
                 rotate={1.5}
                 className="h-40 sm:h-48"
@@ -143,12 +149,14 @@ export default function About() {
             <div className="flex flex-col gap-4 pt-8 sm:gap-6 sm:pt-14">
               <VideoTile
                 src={flowers}
+                poster={flowersPoster}
                 alt="flowers blooming"
                 rotate={1.5}
                 className="h-40 sm:h-48"
               />
               <VideoTile
                 src={her}
+                poster={herPoster}
                 alt="a quiet cinematic portrait"
                 rotate={-1.5}
                 className="h-52 sm:h-64"

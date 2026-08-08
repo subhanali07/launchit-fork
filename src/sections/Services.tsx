@@ -30,13 +30,28 @@ export default function ServicesGrid() {
         transition={{ duration: 0.8, ease: EASE }}
         className="mb-10 sm:mb-14"
       >
-        <div className="flex items-center gap-2 text-[#CFFF04]">
-          <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
-          <ArrowUpRight size={16} strokeWidth={2.5} />
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <div className="flex items-center gap-2 text-[#CFFF04]">
+              <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
+              <ArrowUpRight size={16} strokeWidth={2.5} />
+            </div>
+            <h2 className="mt-8 font-[Arial_Rounded_MT_Bold,Arial,sans-serif] font-black tracking-tight text-white leading-none text-4xl sm:text-6xl">
+              what we <span className="text-[#CFFF04]">do</span>
+            </h2>
+          </div>
+          <Link
+            to="/services"
+            className="group inline-flex w-fit items-center gap-3 rounded-full bg-[#CFFF04] px-7 py-4 text-sm font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.03] sm:text-[15px]"
+          >
+            all services
+            <ArrowUpRight
+              size={16}
+              strokeWidth={2.5}
+              className="text-[#FF2E91] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </Link>
         </div>
-        <h2 className="mt-8 font-[Arial_Rounded_MT_Bold,Arial,sans-serif] font-black tracking-tight text-white leading-none text-4xl sm:text-6xl">
-          what we <span className="text-[#CFFF04]">do</span>
-        </h2>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-[2px] bg-white/10">

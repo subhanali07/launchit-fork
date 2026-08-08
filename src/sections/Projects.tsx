@@ -1,33 +1,38 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ImagePlus } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { data, EASE } from "../utils";
+
+import portfolioSite from "../assets/portfolio-site.mp4";
+import ecommerceSite from "../assets/ecommerce-site.mp4";
+import resumeBuilder from "../assets/resume-builder.mp4";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
-function ProjectImage({
+const VIDEOS: Record<string, { src: string }> = {
+  Portfolio: { src: portfolioSite },
+  Stationary: { src: ecommerceSite },
+  "Naqsh Resume": { src: resumeBuilder },
+};
+
+function ProjectMedia({
   title,
-  src,
+  video,
 }: {
   title: string;
-  src: string;
+  video: { src: string };
 }) {
-  if (src) {
-    return (
-      <img
-        src={src}
-        alt={title}
-        loading="lazy"
-        className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-      />
-    );
-  }
   return (
-    <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-4 border-2 border-dashed border-white/10 bg-gradient-to-br from-[#242424] to-[#1b1b1b] px-6 text-center">
-      <ImagePlus size={30} strokeWidth={1.5} className="text-white/25" />
-      <p className={`${FONT} text-lg font-bold text-white/30`}>{title}</p>
-      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/20">
-        project image
-      </p>
+    <div className="flex h-56 w-full items-center justify-center overflow-hidden bg-black sm:h-64">
+      <video
+        src={video.src}
+        aria-label={title}
+        className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      />
     </div>
   );
 }
@@ -59,10 +64,22 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 0.7, ease: EASE, delay: (i % 3) * 0.12 }}
-            className="group"
+            className="group flex flex-col"
           >
             <div className="relative overflow-hidden rounded-[24px]">
-              <ProjectImage title={project.title} src={project.src} />
+              <ProjectMedia title={project.title} video={VIDEOS[project.title]} />
+              {project.tags && (
+                <div className="pointer-events-none absolute bottom-3 left-3 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
               {project.url && (
                 <a
                   href={project.url}
@@ -77,7 +94,7 @@ export default function Projects() {
             </div>
             <div className="mt-5 flex items-baseline justify-between gap-4">
               <h3
-                className={`${FONT} text-lg font-bold text-white transition-colors duration-300 group-hover:text-[#CFFF04] sm:text-xl`}
+                className={`${FONT} text-lg font-bold text-white sm:text-xl`}
               >
                 {project.title}
               </h3>

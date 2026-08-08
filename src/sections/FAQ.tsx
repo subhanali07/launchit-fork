@@ -36,7 +36,7 @@ export default function FAQ() {
               <br />
               questions.
             </span>
-            <span className="block text-[#CFFF04] mt-12 sm:mt-16">
+            <span className="block text-white mt-12 sm:mt-16">
               We've got
               <br />
               answers.

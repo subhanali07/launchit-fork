@@ -16,9 +16,9 @@ export default function HomePage() {
       <Services />
       <About />
       <Projects />
+      <Connect />
       <Writings />
       <FAQ />
-      <Connect />
       <Footer />
     </>
   );

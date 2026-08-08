@@ -1,58 +1,96 @@
 import { Link } from "react-router-dom";
-import {
-  ArrowUpRight,
-  LayoutTemplate,
-  TrendingUp,
-  ShoppingBag,
-  Share2,
-  Briefcase,
-  Rocket,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Footer } from "../sections/Footer";
 
 const SERVICES = [
   {
+    number: "01",
     title: "Web Design",
-    Icon: LayoutTemplate,
-    bg: "#1C1C1C",
-    text: "#FFFFFF",
-    desc: "Custom websites engineered to convert, from high-impact landing pages to full-scale web experiences, built for speed, elegance and results.",
+    accent: "#CFFF04",
+    description:
+      "We design and build the website itself, from the first sketch to a live, working site. Every page is custom, fast to load and easy to use on any device.",
+    includes: [
+      "Custom design, not a template",
+      "Mobile responsive layout",
+      "Fast load times",
+      "Content management so you can update it yourself",
+    ],
   },
   {
+    number: "02",
     title: "SEO",
-    Icon: TrendingUp,
-    bg: "#CFFF04",
-    text: "#1C1C1C",
-    desc: "Data-driven search optimization that puts you on top. Technical audits, keyword strategy and content that ranks and stays ranked.",
+    accent: "#FF2E91",
+    description:
+      "We make sure people can actually find your site on Google. That means fixing technical issues, choosing the right keywords and writing content that ranks, checked and updated every month.",
+    includes: [
+      "Technical site audit",
+      "Keyword research",
+      "On-page optimization",
+      "Monthly performance reporting",
+    ],
   },
   {
+    number: "03",
     title: "E-commerce",
-    Icon: ShoppingBag,
-    bg: "#1C1C1C",
-    text: "#FFFFFF",
-    desc: "High-converting online stores built to sell. From product catalogs to seamless checkout, e-commerce experiences that turn visitors into customers.",
+    accent: "#5D00FF",
+    description:
+      "We build online stores that are simple to shop and simple to run. Product pages, cart and checkout are all set up so customers can buy without friction.",
+    includes: [
+      "Product catalog setup",
+      "Secure checkout and payments",
+      "Inventory and order management",
+      "Mobile-first shopping experience",
+    ],
   },
   {
-    title: "Social Media Marketing",
-    Icon: Share2,
-    bg: "#FF2E91",
-    text: "#FFFFFF",
-    desc: "Scroll-stopping content and community strategy that grows real, engaged audiences across every platform that matters.",
+    number: "04",
+    title: "Social Media",
+    accent: "#CFFF04",
+    description:
+      "We plan and post content that gets your brand seen, and manage the day to day so your accounts stay active and consistent, not just a page that goes quiet after launch.",
+    includes: [
+      "Content calendar and planning",
+      "Post design and copywriting",
+      "Community management",
+      "Monthly growth report",
+    ],
   },
   {
+    number: "05",
     title: "Portfolio Sites",
-    Icon: Briefcase,
-    bg: "#1C1C1C",
-    text: "#FFFFFF",
-    desc: "Showcase sites that make your work impossible to ignore. Clean, fast and tailored to put your projects front and center.",
+    accent: "#FF2E91",
+    description:
+      "For freelancers, studios and founders who need a site that shows their work clearly. Clean layouts that let the projects do the talking.",
+    includes: [
+      "Custom project layouts",
+      "Case study pages",
+      "Contact and booking forms",
+      "Fast, simple hosting setup",
+    ],
   },
   {
+    number: "06",
     title: "SaaS",
-    Icon: Rocket,
-    bg: "#5D00FF",
-    text: "#FFFFFF",
-    desc: "Scalable web applications and SaaS platforms designed to grow. We turn complex features into simple, fast products users love.",
+    accent: "#5D00FF",
+    description:
+      "We build the actual product for software startups, from the interface to the features that make it work. Built to handle real users, not just a demo.",
+    includes: [
+      "Product design and UI",
+      "Frontend and backend development",
+      "User accounts and dashboards",
+      "Built to scale as you grow",
+    ],
   },
+];
+
+const STACK = [
+  "React",
+  "TypeScript",
+  "Vite",
+  "Tailwind CSS",
+  "Framer Motion",
+  "Three.js",
+  "REST APIs",
 ];
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
@@ -87,43 +125,79 @@ export default function ServicesPage() {
           what we <span className="text-[#FF2E91]">do</span>
         </h1>
         <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/70 sm:text-lg">
-          From brand presence to launch, everything you need to build,
-          grow and scale your presence online.
+          Six things we're good at. Pick one, or let us handle the whole
+          picture, from your first line of code to your first customer.
         </p>
       </header>
 
-      <main className="grid grid-cols-1 px-4 pb-8 sm:grid-cols-2 sm:px-6 md:grid-cols-3 md:px-10 gap-[2px] bg-white/10">
-        {SERVICES.map((service) => {
-          const { Icon } = service;
-          return (
-            <article
-              key={service.title}
-              className="group flex flex-col gap-6 p-8 transition-transform duration-300 hover:scale-[0.98] sm:p-10"
-              style={{ backgroundColor: service.bg }}
-            >
-              <Icon
-                size={40}
-                strokeWidth={1.5}
-                style={{ color: service.text }}
-                className="transition-transform duration-300 group-hover:-translate-y-1"
-              />
-              <div className="mt-auto">
-                <h2
-                  className="font-bold text-xl sm:text-2xl"
-                  style={{ color: service.text }}
-                >
-                  {service.title}
-                </h2>
-                <p
-                  className="mt-3 text-sm leading-relaxed opacity-80 sm:text-[15px]"
-                  style={{ color: service.text }}
-                >
-                  {service.desc}
-                </p>
-              </div>
-            </article>
-          );
-        })}
+      <main className="px-6 pb-20 sm:px-10 md:px-[5.5%]">
+        <div className="border-t border-white/10">
+          {SERVICES.map((service) => {
+            const textColor = service.accent === "#CFFF04" ? "#1C1C1C" : "#FFFFFF";
+            return (
+              <article
+                key={service.title}
+                className="grid grid-cols-1 gap-6 border-b border-white/10 py-10 sm:py-14 lg:grid-cols-[280px_1fr] lg:gap-16"
+              >
+                <div className="flex items-start gap-4 lg:flex-col lg:gap-6">
+                  <span
+                    className={`${FONT} text-2xl font-black`}
+                    style={{ color: service.accent }}
+                  >
+                    {service.number}
+                  </span>
+                  <h3
+                    className={`${FONT} text-3xl font-black uppercase tracking-tight sm:text-4xl lg:text-5xl`}
+                  >
+                    {service.title}
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.2fr_1fr]">
+                  <p className="max-w-lg text-[15px] leading-relaxed text-white/70 sm:text-base">
+                    {service.description}
+                  </p>
+
+                  <ul className="flex flex-col gap-2.5">
+                    {service.includes.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2.5 text-sm text-white/80 sm:text-[15px]"
+                      >
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                          style={{ backgroundColor: service.accent }}
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <section className="mt-20 border-t border-white/10 pt-12">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#CFFF04]">
+            tech stack
+          </p>
+          <h2
+            className={`${FONT} mt-3 text-[clamp(1.8rem,4vw,3rem)] font-black leading-none tracking-[-0.04em]`}
+          >
+            built with modern web tech
+          </h2>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {STACK.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/70 transition-colors duration-300 hover:border-[#CFFF04] hover:text-[#CFFF04]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </section>
       </main>
 
       <section className="rounded-t-[34px] bg-[#CFFF04] px-6 py-20 text-[#1b1b1b] sm:px-10 sm:py-28">
@@ -145,6 +219,7 @@ export default function ServicesPage() {
           </Link>
         </div>
       </section>
+
       <Footer />
     </div>
   );

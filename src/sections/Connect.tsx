@@ -91,7 +91,6 @@ export default function Connect() {
           <span className="font-num text-xs font-medium text-white/50">
             [ contact ]
           </span>
-        
         </div>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:gap-20 xl:gap-28">
@@ -125,85 +124,85 @@ export default function Connect() {
               </a>
 
               <div className="flex flex-col items-start gap-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/40">
-                Find us on
-              </span>
-              <div className="grid w-full grid-cols-4 gap-2.5 sm:flex sm:w-auto sm:gap-3">
-                {SOCIALS.map((social) => {
-                  const { Icon } = social
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      className="flex aspect-square w-full items-center justify-center rounded-full border border-white/20 text-white transition-colors duration-300 hover:border-[#CFFF04] hover:bg-[#CFFF04] hover:text-[#1C1C1C] sm:h-11 sm:w-11"
-                    >
-                      <Icon size={16} strokeWidth={1.75} />
-                    </a>
-                  )
-                })}
-              </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-white/40">
+                  Find us on
+                </span>
+                <div className="grid w-full grid-cols-4 gap-2.5 sm:flex sm:w-auto sm:gap-3">
+                  {SOCIALS.map((social) => {
+                    const { Icon } = social
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="flex aspect-square w-full items-center justify-center rounded-full border border-white/20 text-white transition-colors duration-300 hover:border-[#CFFF04] hover:bg-[#CFFF04] hover:text-[#1C1C1C] sm:h-11 sm:w-11"
+                      >
+                        <Icon size={16} strokeWidth={1.75} />
+                      </a>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-7 lg:border-l lg:border-white/10 lg:pl-14 xl:pl-20">
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8">
-            <input
-              type="text"
-              id="from_name"
-              name="from_name"
-              placeholder="Name"
-              required
-              className={inputClass}
-            />
-            <input
-              type="email"
-              id="from_email"
-              name="from_email"
-              placeholder="Email Address"
-              required
-              className={inputClass}
-            />
+              <input
+                type="text"
+                id="from_name"
+                name="from_name"
+                placeholder="Name"
+                required
+                className={inputClass}
+              />
+              <input
+                type="email"
+                id="from_email"
+                name="from_email"
+                placeholder="Email Address"
+                required
+                className={inputClass}
+              />
             </div>
 
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            placeholder="Message"
-            required
-            className={`${inputClass} resize-y`}
-          />
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              placeholder="Message"
+              required
+              className={`${inputClass} resize-y`}
+            />
 
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <button
-              type="submit"
-              disabled={isSending}
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#CFFF04] px-8 py-4 text-base font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
-            >
-              {isSending ? 'Sending...' : 'Send'}
-              <ArrowUpRight size={18} strokeWidth={2} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </button>
-            <span className="text-center text-sm font-medium leading-relaxed text-white/50 sm:text-right">
-              Prefer email?{' '}
-              <a href="mailto:hello@launchit.com" className="font-bold text-white underline underline-offset-2">
-                hello@launchit.com
-              </a>
-            </span>
-          </div>
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <button
+                type="submit"
+                disabled={isSending}
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#CFFF04] px-8 py-4 text-base font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
+              >
+                {isSending ? 'Sending...' : 'Send'}
+                <ArrowUpRight size={18} strokeWidth={2} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </button>
+              <span className="text-center text-sm font-medium leading-relaxed text-white/50 sm:text-right">
+                Prefer email?{' '}
+                <a href="mailto:hello@launchit.com" className="font-bold text-white underline underline-offset-2">
+                  hello@launchit.com
+                </a>
+              </span>
+            </div>
 
-          {status && (
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`text-[15px] font-semibold ${status.type === 'success' ? 'text-[#CFFF04]' : 'text-[#ff6b6b]'}`}
-            >
-              {status.text}
-            </motion.p>
-          )}
+            {status && (
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`text-[15px] font-semibold ${status.type === 'success' ? 'text-[#CFFF04]' : 'text-[#ff6b6b]'}`}
+              >
+                {status.text}
+              </motion.p>
+            )}
           </form>
         </div>
       </motion.div>
