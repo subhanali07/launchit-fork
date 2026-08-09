@@ -116,15 +116,22 @@ export default function About() {
               </button>
             </h3>
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/60 sm:text-base">
-              We are an independent creative studio built on a simple belief: in
-              an era of infinite, forgettable AI slop, craft still wins. We work
-              with founders and brands who want fewer, better decisions, and we
-              sweat the details other teams skip.
+              We are a team of three, built on a simple belief: in an era of
+              forgettable AI slop, craft still wins.
             </p>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/60 sm:text-base">
-              Every site we build is fast, secure and made to convert, without
-              losing the craft that makes it worth looking at twice.
+              Every site we build is fast, secure and made to convert. We
+              deliver solutions through close collaboration, tailored to each
+              client's requirements.
             </p>
+            <blockquote
+              className={`${FONT} mt-8 border-l-4 border-[#CFFF04] pl-4 text-xl font-black leading-snug text-white sm:text-2xl`}
+            >
+              "Art is not what you see, but what you make others see."
+              <span className="mt-2 block text-sm font-bold normal-case tracking-wide text-[#CFFF04]">
+                Edgar Degas
+              </span>
+            </blockquote>
           </motion.div>
 
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
