@@ -45,7 +45,7 @@ const SECTIONS = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen w-full bg-[#1b1b1b] text-white">
+    <div className="min-h-screen w-full bg-(--page) text-(--text)">
       <nav className="flex h-20 items-center justify-between px-6 sm:px-10">
         <Link
           to="/"
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
         </Link>
         <Link
           to="/"
-          className="mr-14 flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-white hover:text-black sm:mr-16"
+          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
         >
           <ArrowUpRight size={16} />
           back home
@@ -74,18 +74,18 @@ export default function PrivacyPolicyPage() {
           <br />
           <span className="text-[#FF2E91]">policy</span>
         </h1>
-        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/70 sm:text-lg">
+        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-(--text-muted) sm:text-lg">
           The short version: we keep your information safe, use it only to work
           with you, and never sell it. The details are below.
         </p>
       </header>
 
       <main className="mx-auto max-w-3xl px-6 pb-20 sm:px-10 md:px-0">
-        <p className="font-num text-xs font-medium text-white/50">
+        <p className="font-num text-xs font-medium text-(--text-faint)">
           Last updated: 8 August 2026
         </p>
 
-        <div className="mt-4 divide-y divide-white/10 border-y border-white/10">
+        <div className="mt-4 divide-y divide-(--border) border-y border-(--border)">
           {SECTIONS.map((section) => (
             <section key={section.num} className="py-8 sm:py-10">
               <div className="flex items-baseline gap-5">
@@ -98,7 +98,7 @@ export default function PrivacyPolicyPage() {
                   {section.title}
                 </h2>
               </div>
-              <p className="mt-4 text-[15px] leading-relaxed text-white/70 sm:pl-12 sm:text-base">
+              <p className="mt-4 text-[15px] leading-relaxed text-(--text-muted) sm:pl-12 sm:text-base">
                 {section.body}
               </p>
               {section.action && (
@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
           ))}
         </div>
 
-        <p className="mt-10 text-sm leading-relaxed text-white/50">
+        <p className="mt-10 text-sm leading-relaxed text-(--text-faint)">
           Questions about your data? Email us at{" "}
           <a
             href="mailto:hello@launchit.com"

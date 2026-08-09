@@ -22,7 +22,7 @@ const TILES = [
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="bg-[#1C1C1C] w-full px-6 py-16 sm:px-14 sm:py-24">
+    <section id="services" className="bg-(--surface) w-full px-6 py-16 sm:px-14 sm:py-24">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function ServicesGrid() {
               <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
               <ArrowUpRight size={16} strokeWidth={2.5} />
             </div>
-            <h2 className="mt-8 font-[Arial_Rounded_MT_Bold,Arial,sans-serif] font-black tracking-tight text-white leading-none text-4xl sm:text-6xl">
+            <h2 className="mt-8 font-[Arial_Rounded_MT_Bold,Arial,sans-serif] font-black tracking-tight text-(--text) leading-none text-4xl sm:text-6xl">
               what we <span className="text-[#CFFF04]">do</span>
             </h2>
           </div>
@@ -54,7 +54,7 @@ export default function ServicesGrid() {
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-[2px] bg-white/10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-[2px] bg-(--border)">
         {TILES.map((tile, i) => {
           const { Icon } = tile;
           return (

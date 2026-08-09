@@ -87,7 +87,7 @@ const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen w-full bg-[#1b1b1b] text-white">
+    <div className="min-h-screen w-full bg-(--page) text-(--text)">
       <nav className="flex h-20 items-center justify-between px-6 sm:px-10">
         <Link
           to="/"
@@ -98,7 +98,7 @@ export default function ServicesPage() {
         </Link>
         <Link
           to="/"
-          className="mr-14 flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-white hover:text-black sm:mr-16"
+          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
         >
           <ArrowUpRight size={16} />
           back home
@@ -114,19 +114,19 @@ export default function ServicesPage() {
         >
           what we <span className="text-[#FF2E91]">do</span>
         </h1>
-        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/70 sm:text-lg">
+        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-(--text-muted) sm:text-lg">
           Six things we're good at. Pick one, or let us handle the whole
           picture, from your first line of code to your first customer.
         </p>
       </header>
 
       <main className="px-6 pb-20 sm:px-10 md:px-[5.5%]">
-        <div className="border-t border-white/10">
+        <div className="border-t border-(--border)">
           {SERVICES.map((service) => {
             return (
               <article
                 key={service.title}
-                className="grid grid-cols-1 gap-6 border-b border-white/10 py-10 sm:py-14 lg:grid-cols-[280px_1fr] lg:gap-16"
+                className="grid grid-cols-1 gap-6 border-b border-(--border) py-10 sm:py-14 lg:grid-cols-[280px_1fr] lg:gap-16"
               >
                 <div className="flex items-start gap-4 lg:flex-col lg:gap-6">
                   <span
@@ -143,7 +143,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.2fr_1fr]">
-                  <p className="max-w-lg text-[15px] leading-relaxed text-white/70 sm:text-base">
+                  <p className="max-w-lg text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
                     {service.description}
                   </p>
 
@@ -151,7 +151,7 @@ export default function ServicesPage() {
                     {service.includes.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2.5 text-sm text-white/80 sm:text-[15px]"
+                        className="flex items-start gap-2.5 text-sm text-(--text-soft) sm:text-[15px]"
                       >
                         <span
                           className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"

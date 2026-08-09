@@ -48,7 +48,7 @@ export function Navbar() {
     ? 'text-[#CFFF04]'
     : dark
       ? 'text-[#1b1b1b]'
-      : 'text-white'
+      : 'text-(--text)'
 
   return (
     <>
@@ -67,7 +67,7 @@ export function Navbar() {
 
       <div
         className={cn(
-          'fixed inset-0 z-[60] bg-[#1b1b1b] transition-transform duration-300 ease-in-out',
+          'fixed inset-0 z-[60] bg-(--page) transition-transform duration-300 ease-in-out',
           open ? 'translate-y-0' : '-translate-y-full',
         )}
       >
@@ -93,7 +93,7 @@ export function Navbar() {
                     'flex w-full items-center gap-3 px-6 py-4 text-left transition-colors sm:px-14 sm:py-5',
                     isActive
                       ? 'bg-[#CFFF04] text-black'
-                      : 'bg-transparent text-white hover:bg-white/5',
+                      : 'bg-transparent text-(--text) hover:bg-(--border)',
                   )}
                 >
                   <span

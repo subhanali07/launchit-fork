@@ -3,7 +3,7 @@ import { EASE } from "../utils";
 
 function Statement() {
   return (
-    <section id="statement" className="w-full bg-[#1b1b1b] px-4 text-white">
+    <section id="statement" className="w-full bg-(--page) px-4 text-(--text)">
       <div className="rounded-b-[34px] bg-[#CFFF04] px-10 pb-20 pt-16 sm:px-9 sm:pb-28 sm:pt-24">
         <motion.p
           initial={{ opacity: 0, y: 60 }}

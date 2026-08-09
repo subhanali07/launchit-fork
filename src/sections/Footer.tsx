@@ -14,18 +14,18 @@ const NAV = [
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#1C1C1C] px-6 pb-8 pt-16 sm:px-14 sm:pt-20">
+    <footer className="w-full bg-(--surface) px-6 pb-8 pt-16 sm:px-14 sm:pt-20">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
             <Link
               to="/"
               aria-label="Launchit home"
-              className={`${FONT} text-4xl font-black tracking-tight text-white`}
+              className={`${FONT} text-4xl font-black tracking-tight text-(--text)`}
             >
               launchit<span className="text-[#CFFF04]">.</span>
             </Link>
-            <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-white/60">
+            <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-(--text-muted)">
               A web development agency building custom sites, stores and SEO for
               new startups :3
             </p>
@@ -48,7 +48,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     to={item.to}
-                    className="text-[15px] text-white/70 transition-colors duration-300 hover:text-[#CFFF04]"
+                    className="text-[15px] text-(--text-muted) transition-colors duration-300 hover:text-[#CFFF04]"
                   >
                     {item.label}
                   </Link>
@@ -75,19 +75,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-(--border) pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <p className="text-sm text-white/50">
+            <p className="text-sm text-(--text-faint)">
               © {new Date().getFullYear()} Launchit. All rights reserved.
             </p>
             <Link
               to="/privacy"
-              className="text-sm text-white/50 underline-offset-4 transition-colors duration-300 hover:text-[#CFFF04] hover:underline"
+              className="text-sm text-(--text-faint) underline-offset-4 transition-colors duration-300 hover:text-[#CFFF04] hover:underline"
             >
               Privacy policy
             </Link>
           </div>
-          <p className="text-sm text-white/50">made by aleeza</p>
+          <p className="text-sm text-(--text-faint)">made by aleeza</p>
         </div>
       </div>
     </footer>

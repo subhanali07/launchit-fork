@@ -100,7 +100,7 @@ function Toggle({
       onClick={() => onChange(!checked)}
       className={cn(
         "relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-300",
-        checked ? "bg-[#CFFF04]" : "bg-white/15",
+        checked ? "bg-[#CFFF04]" : "bg-(--border-strong)",
         disabled && "cursor-not-allowed",
       )}
     >
@@ -183,14 +183,14 @@ export function CookieConsent() {
             transition={{ duration: 0.5, ease: EASE }}
             className="fixed inset-x-3 bottom-3 z-[80] sm:inset-x-auto sm:right-6 sm:bottom-6 sm:left-auto sm:w-[26rem]"
           >
-            <div className="rounded-[1.75rem] bg-[#1C1C1C] p-6 text-white shadow-2xl ring-1 ring-white/10">
+            <div className="rounded-[1.75rem] bg-(--surface) p-6 text-(--text) shadow-2xl ring-1 ring-(--border)">
               <div className="flex items-center gap-2 text-[#CFFF04]">
                 <Cookie size={18} strokeWidth={2} />
                 <span className="text-xs font-bold uppercase tracking-widest">
                   Cookies
                 </span>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-white/75">
+              <p className="mt-3 text-sm leading-relaxed text-(--text-soft)">
                 We use cookies to improve your experience and understand how the
                 site is used. You're in control, choose what you allow.
               </p>
@@ -205,14 +205,14 @@ export function CookieConsent() {
                 <button
                   type="button"
                   onClick={declineAll}
-                  className="rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:border-white/60"
+                    className="rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-semibold text-(--text) transition-colors duration-300 hover:border-(--border-strong)"
                 >
                   Decline
                 </button>
                 <button
                   type="button"
                   onClick={openPreferences}
-                  className="px-3 py-2.5 text-sm font-medium text-white/70 transition-colors duration-300 hover:text-white"
+                  className="px-3 py-2.5 text-sm font-medium text-(--text-muted) transition-colors duration-300 hover:text-(--text)"
                 >
                   Manage preferences
                 </button>
@@ -245,9 +245,9 @@ export function CookieConsent() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 40, scale: 0.98 }}
               transition={{ duration: 0.4, ease: EASE }}
-              className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-[#1C1C1C] text-white ring-1 ring-white/10"
+              className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-(--surface) text-(--text) ring-1 ring-(--border)"
             >
-              <div className="flex items-start justify-between gap-4 border-b border-white/10 p-6 sm:p-8">
+              <div className="flex items-start justify-between gap-4 border-b border-(--border) p-6 sm:p-8">
                 <div>
                   <h2
                     id="cookie-preferences-title"
@@ -255,7 +255,7 @@ export function CookieConsent() {
                   >
                     Cookie preferences
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">
+                  <p className="mt-2 text-sm leading-relaxed text-(--text-muted)">
                     Manage how we use cookies. Your choices are saved on this
                     device and can be changed any time from the footer.
                   </p>
@@ -264,13 +264,13 @@ export function CookieConsent() {
                   type="button"
                   aria-label="Close"
                   onClick={() => setModalOpen(false)}
-                  className="rounded-full p-2 text-white/60 transition-colors duration-300 hover:bg-white/10 hover:text-white"
+                  className="rounded-full p-2 text-(--text-faint) transition-colors duration-300 hover:bg-(--border) hover:text-(--text)"
                 >
                   <X size={20} strokeWidth={2} />
                 </button>
               </div>
 
-              <div className="divide-y divide-white/10">
+              <div className="divide-y divide-(--border)">
                 {CATEGORIES.map((category) => (
                   <div
                     key={category.key}
@@ -285,7 +285,7 @@ export function CookieConsent() {
                           </span>
                         )}
                       </p>
-                      <p className="mt-1 max-w-xs text-sm leading-relaxed text-white/60">
+                      <p className="mt-1 max-w-xs text-sm leading-relaxed text-(--text-muted)">
                         {category.desc}
                       </p>
                     </div>
@@ -299,11 +299,11 @@ export function CookieConsent() {
                 ))}
               </div>
 
-              <div className="flex flex-col gap-3 border-t border-white/10 bg-white/[0.03] p-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+              <div className="flex flex-col gap-3 border-t border-(--border) bg-white/[0.03] p-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
                 <button
                   type="button"
                   onClick={declineAll}
-                  className="text-sm font-medium text-white/60 transition-colors duration-300 hover:text-white"
+                  className="text-sm font-medium text-(--text-muted) transition-colors duration-300 hover:text-(--text)"
                 >
                   Decline all
                 </button>
@@ -311,7 +311,7 @@ export function CookieConsent() {
                   <button
                     type="button"
                     onClick={acceptAll}
-                    className="rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:border-white/60"
+                  className="rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-semibold text-(--text) transition-colors duration-300 hover:border-(--border-strong)"
                   >
                     Accept all
                   </button>

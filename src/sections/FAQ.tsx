@@ -9,7 +9,7 @@ export default function FAQ() {
   return (
     <section
       id="faqs"
-      className="w-full bg-[#1C1C1C] px-4 py-10 sm:px-8 sm:py-16"
+      className="w-full bg-(--surface) px-4 py-10 sm:px-8 sm:py-16"
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}

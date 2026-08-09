@@ -26,7 +26,7 @@ const FONT = 'font-[Arial_Rounded_MT_Bold,Arial,sans-serif]'
 type Status = { type: 'success' | 'error'; text: string } | null
 
 const inputClass =
-  'w-full min-w-0 border-b border-white/25 bg-transparent px-0 py-3.5 text-base text-white transition-colors duration-300 placeholder:text-white/40 focus:border-[#CFFF04] focus:outline-none'
+  'w-full min-w-0 border-b border-(--border-strong) bg-transparent px-0 py-3.5 text-base text-(--text) transition-colors duration-300 placeholder:text-(--text-faint) focus:border-[#CFFF04] focus:outline-none'
 
 export default function Connect() {
   const [isSending, setIsSending] = useState(false)
@@ -79,16 +79,16 @@ export default function Connect() {
   }
 
   return (
-    <section id="contact" className="w-full overflow-hidden bg-[#1C1C1C] px-4 py-12 sm:px-8 sm:py-20 lg:px-14 lg:py-24">
+    <section id="contact" className="w-full overflow-hidden bg-(--surface) px-4 py-12 sm:px-8 sm:py-20 lg:px-14 lg:py-24">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-10% 0px' }}
         transition={{ duration: 0.8, ease: EASE }}
-        className="mx-auto max-w-[1440px] rounded-[2rem] bg-[#242424] px-5 py-7 sm:rounded-[2.75rem] sm:px-10 sm:py-11 lg:px-14 lg:py-14"
+        className="mx-auto max-w-[1440px] rounded-[2rem] bg-(--card) px-5 py-7 sm:rounded-[2.75rem] sm:px-10 sm:py-11 lg:px-14 lg:py-14"
       >
-        <div className="mb-10 flex items-center justify-between border-b border-white/10 pb-4 sm:mb-14">
-          <span className="font-num text-xs font-medium text-white/50">
+        <div className="mb-10 flex items-center justify-between border-b border-(--border) pb-4 sm:mb-14">
+          <span className="font-num text-xs font-medium text-(--text-faint)">
             [ contact ]
           </span>
         </div>
@@ -99,10 +99,10 @@ export default function Connect() {
               <h2
                 className={`${FONT} max-w-full text-[clamp(2.8rem,14vw,4.5rem)] font-black leading-[0.9] tracking-[-0.055em] sm:text-7xl lg:text-[clamp(4.5rem,6vw,6.5rem)]`}
               >
-                <span className="block text-white">let's</span>
+                <span className="block text-(--text)">let's</span>
                 <span className="block text-[#FF2E91]">connect.</span>
               </h2>
-              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/60 sm:mt-8 sm:text-base mb-4">
+              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-(--text-muted) sm:mt-8 sm:text-base mb-4">
                 Have a project in mind or just want to say hello? Tell us a little
                 about it.
               </p>
@@ -124,7 +124,7 @@ export default function Connect() {
               </a>
 
               <div className="flex flex-col items-start gap-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-white/40">
+                <span className="text-xs font-bold uppercase tracking-widest text-(--text-faint)">
                   Find us on
                 </span>
                 <div className="grid w-full grid-cols-4 gap-2.5 sm:flex sm:w-auto sm:gap-3">
@@ -137,7 +137,7 @@ export default function Connect() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.label}
-                        className="flex aspect-square w-full items-center justify-center rounded-full border border-white/20 text-white transition-colors duration-300 hover:border-[#CFFF04] hover:bg-[#CFFF04] hover:text-[#1C1C1C] sm:h-11 sm:w-11"
+                        className="flex aspect-square w-full items-center justify-center rounded-full border border-(--border-strong) text-(--text) transition-colors duration-300 hover:border-[#CFFF04] hover:bg-[#CFFF04] hover:text-[#1C1C1C] sm:h-11 sm:w-11"
                       >
                         <Icon size={16} strokeWidth={1.75} />
                       </a>
@@ -148,7 +148,7 @@ export default function Connect() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-7 lg:border-l lg:border-white/10 lg:pl-14 xl:pl-20">
+          <form onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-7 lg:border-l lg:border-(--border) lg:pl-14 xl:pl-20">
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8">
               <input
                 type="text"
@@ -186,9 +186,9 @@ export default function Connect() {
                 {isSending ? 'Sending...' : 'Send'}
                 <ArrowUpRight size={18} strokeWidth={2} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
-              <span className="text-center text-sm font-medium leading-relaxed text-white/50 sm:text-right">
+              <span className="text-center text-sm font-medium leading-relaxed text-(--text-faint) sm:text-right">
                 Prefer email?{' '}
-                <a href="mailto:hello@launchit.com" className="font-bold text-white underline underline-offset-2">
+                <a href="mailto:hello@launchit.com" className="font-bold text-(--text) underline underline-offset-2">
                   hello@launchit.com
                 </a>
               </span>

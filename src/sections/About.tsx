@@ -34,7 +34,7 @@ function VideoTile({
 }) {
   return (
     <div
-      className={`${className} overflow-hidden rounded-[20px] border border-white/10 bg-black`}
+      className={`${className} overflow-hidden rounded-[20px] border border-(--border) bg-black`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       <video
@@ -54,7 +54,7 @@ function VideoTile({
 
 function Marquee() {
   return (
-    <div className="mt-8 overflow-hidden border-y border-white/10 py-4 sm:mt-10 sm:py-5">
+    <div className="mt-8 overflow-hidden border-y border-(--border) py-4 sm:mt-10 sm:py-5">
       <motion.div
         className="flex w-max shrink-0 items-center gap-5"
         animate={{ x: ["0%", "-50%"] }}
@@ -63,7 +63,7 @@ function Marquee() {
         {[...MARQUEE_WORDS, ...MARQUEE_WORDS].map((word, i) => (
           <span
             key={`${word}-${i}`}
-            className={`${FONT} flex shrink-0 items-center gap-5 text-2xl font-black uppercase tracking-tight text-white/20 sm:text-3xl`}
+            className={`${FONT} flex shrink-0 items-center gap-5 text-2xl font-black uppercase tracking-tight text-(--text-faint) sm:text-3xl`}
           >
             {word}
             <span className="text-[#CFFF04]">*</span>
@@ -78,7 +78,7 @@ export default function About() {
   const [colorIndex, setColorIndex] = useState(0);
 
   return (
-    <section id="about" className="w-full bg-[#1C1C1C] px-6 py-12 sm:px-14 sm:py-16">
+    <section id="about" className="w-full bg-(--surface) px-6 py-12 sm:px-14 sm:py-16">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function About() {
             <h3
               className={`${FONT} mt-3 max-w-xl text-3xl font-black leading-[1.05] tracking-tight sm:text-5xl`}
             >
-              <span className="text-white">in the age of ai slop,</span>
+              <span className="text-(--text)">in the age of ai slop,</span>
               <br />
               <button
                 type="button"
@@ -115,17 +115,17 @@ export default function About() {
                 we make art.
               </button>
             </h3>
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/60 sm:text-base">
+            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
               We are a team of three, built on a simple belief: in an era of
               forgettable AI slop, craft still wins.
             </p>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/60 sm:text-base">
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
               Every site we build is fast, secure and made to convert. We
               deliver solutions through close collaboration, tailored to each
               client's requirements.
             </p>
             <blockquote
-              className={`${FONT} mt-8 border-l-4 border-[#CFFF04] pl-4 text-xl font-black leading-snug text-white sm:text-2xl`}
+              className={`${FONT} mt-8 border-l-4 border-[#CFFF04] pl-4 text-xl font-black leading-snug text-(--text) sm:text-2xl`}
             >
               "Art is not what you see, but what you make others see."
               <span className="mt-2 block text-sm font-bold normal-case tracking-wide text-[#CFFF04]">

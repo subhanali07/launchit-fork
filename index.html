@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/Black and Red Bold Creative Scribble Artist Logo.png" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("launchit-theme");
+          var light = stored === "light" ||
+            (!stored && window.matchMedia("(prefers-color-scheme: light)").matches);
+          if (light) document.documentElement.classList.add("light");
+        } catch (e) {}
+      })();
+    </script>
     <meta name="theme-color" content="#1b1b1b" />
     <meta name="author" content="Launchit" />
 

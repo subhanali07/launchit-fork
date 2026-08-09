@@ -6,7 +6,7 @@ const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
 function Hero() {
   return (
-    <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#1b1b1b] px-4 pt-5">
+    <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-(--page) px-4 pt-5">
       <nav className="relative z-20 mb-4 flex h-8 items-center justify-between sm:mb-5">
         <div className="flex flex-1 justify-center">
           <div className="flex translate-x-5 items-center gap-2 text-[#5D00FF] sm:translate-x-7">

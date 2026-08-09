@@ -27,17 +27,41 @@
     scroll-behavior: smooth;
   }
 
+  :root {
+    --page: #1b1b1b;
+    --surface: #1c1c1c;
+    --card: #242424;
+    --text: #ffffff;
+    --text-soft: rgb(255 255 255 / 0.8);
+    --text-muted: rgb(255 255 255 / 0.65);
+    --text-faint: rgb(255 255 255 / 0.45);
+    --border: rgb(255 255 255 / 0.12);
+    --border-strong: rgb(255 255 255 / 0.25);
+  }
+
+  html.light {
+    --page: #f6f5f1;
+    --surface: #ffffff;
+    --card: #efeeea;
+    --text: #1b1b1b;
+    --text-soft: rgb(27 27 27 / 0.8);
+    --text-muted: rgb(27 27 27 / 0.65);
+    --text-faint: rgb(27 27 27 / 0.5);
+    --border: rgb(27 27 27 / 0.12);
+    --border-strong: rgb(27 27 27 / 0.28);
+  }
+
   body {
-    background-color: var(--color-paper);
-    color: var(--color-ink);
+    background-color: var(--page);
+    color: var(--text);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background-color: var(--color-ink);
-    color: var(--color-paper);
+    background-color: var(--text);
+    color: var(--page);
   }
 }
 

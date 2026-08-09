@@ -8,6 +8,7 @@ import BlogPostPage from "./pages/BlogPostPage";
 import { Navbar } from "./sections/Navbar";
 import { CookieConsent } from "./components/CookieConsent";
 import { Seo } from "./components/Seo";
+import { ThemeProvider } from "./theme/ThemeProvider";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -26,7 +27,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <Seo />
       <Navbar />
       <ScrollToTop />
@@ -39,7 +40,7 @@ function App() {
         <Route path="*" element={<HomePage />} />
       </Routes>
       <CookieConsent />
-    </>
+    </ThemeProvider>
   );
 }
 export default App;

@@ -43,7 +43,7 @@ function ProjectMedia({
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full bg-[#1C1C1C] px-6 pt-12 pb-16 sm:px-14 sm:pt-16 sm:pb-24">
+    <section id="projects" className="w-full bg-(--surface) px-6 pt-12 pb-16 sm:px-14 sm:pt-16 sm:pb-24">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function Projects() {
           <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
           <ArrowUpRight size={16} strokeWidth={2.5} />
         </div>
-        <h2 className={`${FONT} mt-8 font-black tracking-tight text-white leading-none text-4xl sm:text-6xl`}>
+        <h2 className={`${FONT} mt-8 font-black tracking-tight text-(--text) leading-none text-4xl sm:text-6xl`}>
           our <span className="text-[#FF2E91]">work</span>
         </h2>
       </motion.div>
@@ -98,11 +98,11 @@ export default function Projects() {
             </div>
             <div className="mt-5 flex items-baseline justify-between gap-4">
               <h3
-                className={`${FONT} text-lg font-bold text-white sm:text-xl`}
+                className={`${FONT} text-lg font-bold text-(--text) sm:text-xl`}
               >
                 {project.title}
               </h3>
-              <span className="text-xs font-bold uppercase tracking-widest text-white/50">
+              <span className="text-xs font-bold uppercase tracking-widest text-(--text-faint)">
                 {project.year}
               </span>
             </div>

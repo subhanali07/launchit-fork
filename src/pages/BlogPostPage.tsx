@@ -17,7 +17,7 @@ export default function BlogPostPage() {
   if (!post) return <Navigate to="/" replace />;
 
   return (
-    <div className="min-h-screen w-full bg-[#1b1b1b] text-white">
+    <div className="min-h-screen w-full bg-(--page) text-(--text)">
       <nav className="flex h-20 items-center justify-between px-6 sm:px-10">
         <Link
           to="/"
@@ -28,7 +28,7 @@ export default function BlogPostPage() {
         </Link>
         <Link
           to="/#writings"
-          className="mr-14 flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-white hover:text-black sm:mr-16"
+          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
         >
           <ArrowUpRight size={16} />
           all writings
@@ -43,7 +43,7 @@ export default function BlogPostPage() {
             >
               {post.tag}
             </span>
-            <span className="text-xs font-medium text-white/40">
+            <span className="text-xs font-medium text-(--text-faint)">
               {post.date} · {post.read}
             </span>
           </div>
@@ -71,7 +71,7 @@ export default function BlogPostPage() {
               {section.paragraphs.map((paragraph) => (
                 <p
                   key={paragraph}
-                  className="mt-4 text-[15px] leading-relaxed text-white/70 sm:text-base"
+                  className="mt-4 text-[15px] leading-relaxed text-(--text-muted) sm:text-base"
                 >
                   {paragraph}
                 </p>
@@ -80,7 +80,7 @@ export default function BlogPostPage() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col items-start gap-5 border-t border-white/10 pt-10">
+        <div className="mt-16 flex flex-col items-start gap-5 border-t border-(--border) pt-10">
           <Link
             to="/#writings"
             className={`${FONT} inline-flex items-center gap-2 text-xl font-black text-[#CFFF04] transition-transform duration-300 hover:-translate-y-0.5`}
