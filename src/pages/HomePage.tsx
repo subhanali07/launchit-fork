@@ -7,12 +7,10 @@ import Writings from "../sections/Writings";
 import FAQ from "../sections/FAQ";
 import Connect from "../sections/Connect";
 import { Footer } from "../sections/Footer";
-import { ThemeToggle } from "../components/ThemeToggle";
 
 export default function HomePage() {
   return (
     <>
-      <ThemeToggle />
       <Hero />
       <Statement />
       <Services />
