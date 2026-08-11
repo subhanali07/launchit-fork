@@ -4,6 +4,7 @@ import { Button } from '../components/Button'
 import { EASE } from '../utils'
 import emailjs from '@emailjs/browser'
 
+// Note: the contact email isn't functional yet because the domain name isn't set up, so this EmailJS integration stays disabled for now.
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
@@ -57,7 +58,7 @@ export function Contact() {
           console.error('EmailJS error:', error)
           setStatus({
             type: 'error',
-            text: 'Something went wrong. Please try again, or email us directly at hello@blanc.studio.',
+            text: 'Something went wrong. Please try again.',
           })
           setIsSending(false)
         },
@@ -134,12 +135,6 @@ export function Contact() {
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <Button label={isSending ? 'Sending...' : 'Send message'} type="submit" disabled={isSending} />
-            <span className="text-sm text-sub">
-              Prefer email?{' '}
-              <a href="mailto:hello@blanc.studio" className="link-underline text-ink">
-                hello@blanc.studio
-              </a>
-            </span>
           </div>
 
           {status && (

@@ -1,25 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import {
-  FaInstagram,
-  FaLinkedinIn,
-  FaXTwitter,
-  FaYoutube,
-} from 'react-icons/fa6'
 import { EASE } from '../utils'
 import emailjs from '@emailjs/browser'
 
+// Note: the contact email isn't functional yet because the domain name isn't set up, so this EmailJS integration stays disabled for now.
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-
-const SOCIALS = [
-  { label: 'Instagram', href: '#', Icon: FaInstagram },
-  { label: 'LinkedIn', href: '#', Icon: FaLinkedinIn },
-  { label: 'X', href: '#', Icon: FaXTwitter },
-  { label: 'YouTube', href: '#', Icon: FaYoutube },
-]
 
 const FONT = 'font-[Arial_Rounded_MT_Bold,Arial,sans-serif]'
 
@@ -122,29 +110,6 @@ export default function Connect() {
                   className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </a>
-
-              <div className="flex flex-col items-start gap-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-(--text-faint)">
-                  Find us on
-                </span>
-                <div className="grid w-full grid-cols-4 gap-2.5 sm:flex sm:w-auto sm:gap-3">
-                  {SOCIALS.map((social) => {
-                    const { Icon } = social
-                    return (
-                      <a
-                        key={social.label}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.label}
-                        className="flex aspect-square w-full items-center justify-center rounded-full border border-(--border-strong) text-(--text) transition-colors duration-300 hover:border-[#CFFF04] hover:bg-[#CFFF04] hover:text-[#1C1C1C] sm:h-11 sm:w-11"
-                      >
-                        <Icon size={16} strokeWidth={1.75} />
-                      </a>
-                    )
-                  })}
-                </div>
-              </div>
             </div>
           </div>
 
@@ -186,12 +151,6 @@ export default function Connect() {
                 {isSending ? 'Sending...' : 'Send'}
                 <ArrowUpRight size={18} strokeWidth={2} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
-              <span className="text-center text-sm font-medium leading-relaxed text-(--text-faint) sm:text-right">
-                Prefer email?{' '}
-                <a href="mailto:hello@launchit.com" className="font-bold text-(--text) underline underline-offset-2">
-                  hello@launchit.com
-                </a>
-              </span>
             </div>
 
             {status && (

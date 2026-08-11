@@ -26,7 +26,7 @@ export function CTA() {
           </h2>
 
           <motion.a
-            href="mailto:hello@blanc.studio"
+            href="/contact"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             initial={{ opacity: 0, scale: 0.9 }}
@@ -36,7 +36,7 @@ export function CTA() {
             whileHover={{ scale: 1.04 }}
             className="mt-14 inline-flex items-center gap-4 rounded-full bg-ink px-10 py-6 text-lg font-semibold text-paper transition-colors duration-500 hover:bg-black"
           >
-            hello@blanc.studio
+            Start a project
             <Arrow size={22} hovered={hovered} />
           </motion.a>
         </motion.div>

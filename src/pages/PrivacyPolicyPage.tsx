@@ -120,13 +120,13 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <p className="mt-10 text-sm leading-relaxed text-(--text-faint)">
-          Questions about your data? Email us at{" "}
-          <a
-            href="mailto:hello@launchit.com"
+          Questions about your data?{" "}
+          <Link
+            to="/contact"
             className="font-medium text-[#CFFF04] underline-offset-4 hover:underline"
           >
-            hello@launchit.com
-          </a>
+            Get in touch via our contact page
+          </Link>
           .
         </p>
       </main>

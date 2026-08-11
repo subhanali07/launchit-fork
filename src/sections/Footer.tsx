@@ -29,17 +29,6 @@ export function Footer() {
               A web development agency building custom sites, stores and SEO for
               new startups :3
             </p>
-            <a
-              href="mailto:hello@launchit.com"
-              className="group mt-6 inline-flex items-center gap-2 text-[15px] font-bold text-[#CFFF04]"
-            >
-              hello@launchit.com
-              <ArrowUpRight
-                size={16}
-                strokeWidth={2.5}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
-            </a>
           </div>
 
           <div className="md:col-span-3">
