@@ -151,6 +151,9 @@ export default function Connect() {
                 {isSending ? 'Sending...' : 'Send'}
                 <ArrowUpRight size={18} strokeWidth={2} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
+              <span className="text-center text-sm font-medium leading-relaxed text-(--text-faint) sm:text-right">
+                EmailJS won't work yet coz we haven't bought the domain name.
+              </span>
             </div>
 
             {status && (
