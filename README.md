@@ -82,7 +82,7 @@ A few sections (About, Projects) use looping background video instead of static 
 
 ## Some cool screenshots
 ![alt text](image.png)
-![alt text](image-5.png)
+![alt text](image-6.png)
 (mobile preview)
 ![alt text](image-2.png)
 ![alt text](image-1.png)
