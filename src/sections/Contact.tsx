@@ -1,68 +1,39 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { Button } from '../components/Button'
 import { EASE } from '../utils'
-import emailjs from '@emailjs/browser'
 
-// Note: the contact email isn't functional yet because the domain name isn't set up, so this EmailJS integration stays disabled for now.
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-
-type Status = { type: 'success' | 'error'; text: string } | null
 
 const inputClass =
   'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-[15px] text-ink transition-colors duration-300 placeholder:text-sub/50 focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10'
 
 export function Contact() {
-  const [isSending, setIsSending] = useState(false)
-  const [status, setStatus] = useState<Status>(null)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
-
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      setStatus({
-        type: 'error',
-        text: 'The contact form isn\u2019t configured yet. Add your EmailJS keys to the .env file to enable sending.',
-      })
-      return
-    }
 
     const value = (name: string) =>
       (form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement | null)?.value ?? ''
 
-    const templateParams = {
-      from_name: value('from_name'),
-      from_email: value('from_email'),
-      subject: value('subject'),
-      message: value('message'),
+    setStatus('sending')
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+        from_name: value('from_name'),
+        from_email: value('from_email'),
+        subject: value('subject'),
+        message: value('message'),
+      }, { publicKey: PUBLIC_KEY })
+      setStatus('sent')
+      form.reset()
+    } catch {
+      setStatus('error')
     }
-
-    setIsSending(true)
-    setStatus(null)
-
-    emailjs
-      .send(SERVICE_ID, TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY })
-      .then(
-        () => {
-          setStatus({
-            type: 'success',
-            text: 'Message sent successfully. We\u2019ll get back to you within two working days.',
-          })
-          form.reset()
-          setIsSending(false)
-        },
-        (error) => {
-          console.error('EmailJS error:', error)
-          setStatus({
-            type: 'error',
-            text: 'Something went wrong. Please try again.',
-          })
-          setIsSending(false)
-        },
-      )
   }
 
   return (
@@ -134,18 +105,15 @@ export function Contact() {
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button label={isSending ? 'Sending...' : 'Send message'} type="submit" disabled={isSending} />
+            <Button
+              label={status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent ✓' : 'Send message'}
+              type="submit"
+              disabled={status === 'sending'}
+            />
+            {status === 'error' && (
+              <p className="text-sm text-red-500">Something went wrong — please try again.</p>
+            )}
           </div>
-
-          {status && (
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`text-[15px] ${status.type === 'success' ? 'text-ink' : 'text-[#b3261e]'}`}
-            >
-              {status.text}
-            </motion.p>
-          )}
         </motion.form>
       </div>
     </section>

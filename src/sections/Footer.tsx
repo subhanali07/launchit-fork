@@ -50,6 +50,12 @@ export function Footer() {
             <p className="text-xs font-bold uppercase tracking-widest text-[#CFFF04]">
               Get in touch
             </p>
+            <a
+              href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'launchitweb@gmail.com'}`}
+              className="mt-5 block w-fit text-[15px] font-semibold text-(--text) transition-colors duration-300 hover:text-[#CFFF04]"
+            >
+              {import.meta.env.VITE_CONTACT_EMAIL || 'launchitweb@gmail.com'}
+            </a>
             <Link
               to="/contact"
               className="group mt-5 inline-flex items-center gap-2 rounded-full bg-[#CFFF04] px-6 py-3.5 text-sm font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.03]"

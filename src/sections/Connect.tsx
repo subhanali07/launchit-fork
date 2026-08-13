@@ -1,69 +1,40 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { EASE } from '../utils'
-import emailjs from '@emailjs/browser'
 
-// Note: the contact email isn't functional yet because the domain name isn't set up, so this EmailJS integration stays disabled for now.
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const FONT = 'font-[Arial_Rounded_MT_Bold,Arial,sans-serif]'
 
-type Status = { type: 'success' | 'error'; text: string } | null
-
 const inputClass =
   'w-full min-w-0 border-b border-(--border-strong) bg-transparent px-0 py-3.5 text-base text-(--text) transition-colors duration-300 placeholder:text-(--text-faint) focus:border-[#CFFF04] focus:outline-none'
 
 export default function Connect() {
-  const [isSending, setIsSending] = useState(false)
-  const [status, setStatus] = useState<Status>(null)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
-
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      setStatus({
-        type: 'error',
-        text: 'The contact form isn\u2019t configured yet. Add your EmailJS keys to the .env file to enable sending.',
-      })
-      return
-    }
 
     const value = (name: string) =>
       (form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement | null)?.value ?? ''
 
-    const templateParams = {
-      from_name: value('from_name'),
-      from_email: value('from_email'),
-      message: value('message'),
+    setStatus('sending')
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+        from_name: value('from_name'),
+        from_email: value('from_email'),
+        message: value('message'),
+      }, { publicKey: PUBLIC_KEY })
+      setStatus('sent')
+      form.reset()
+    } catch {
+      setStatus('error')
     }
-
-    setIsSending(true)
-    setStatus(null)
-
-    emailjs
-      .send(SERVICE_ID, TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY })
-      .then(
-        () => {
-          setStatus({
-            type: 'success',
-            text: 'Message sent successfully. We\u2019ll get back to you within two working days.',
-          })
-          form.reset()
-          setIsSending(false)
-        },
-        (error) => {
-          console.error('EmailJS error:', error)
-          setStatus({
-            type: 'error',
-            text: 'Something went wrong. Please try again.',
-          })
-          setIsSending(false)
-        },
-      )
   }
 
   return (
@@ -98,12 +69,10 @@ export default function Connect() {
 
             <div className="mt-8 flex flex-col gap-7 sm:mt-10 lg:mt-auto">
               <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:launchitweb@gmail.com"
                 className="group inline-flex w-full items-center justify-between rounded-full border border-[#CFFF04] px-5 py-3.5 text-sm font-semibold text-[#CFFF04] transition-colors duration-300 hover:bg-[#CFFF04] hover:text-[#1C1C1C] sm:w-fit sm:gap-8 sm:px-6"
               >
-                Book a call
+                Email us
                 <ArrowUpRight
                   size={15}
                   strokeWidth={2.5}
@@ -145,26 +114,27 @@ export default function Connect() {
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="submit"
-                disabled={isSending}
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#CFFF04] px-8 py-4 text-base font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.02] disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
+                disabled={status === 'sending'}
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#CFFF04] px-8 py-4 text-base font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
-                {isSending ? 'Sending...' : 'Send'}
+                {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent ✓' : 'Send'}
                 <ArrowUpRight size={18} strokeWidth={2} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
+              {status === 'error' && (
+                <span className="text-center text-sm font-medium text-red-400 sm:text-right">
+                  Something went wrong — please try again.
+                </span>
+              )}
               <span className="text-center text-sm font-medium leading-relaxed text-(--text-faint) sm:text-right">
-                EmailJS won't work yet coz we haven't bought the domain name.
+                or email us directly at{' '}
+                <a
+                  href="mailto:launchitweb@gmail.com"
+                  className="font-semibold text-(--text) underline-offset-4 transition-colors hover:text-[#CFFF04] hover:underline"
+                >
+                  launchitweb@gmail.com
+                </a>
               </span>
             </div>
-
-            {status && (
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`text-[15px] font-semibold ${status.type === 'success' ? 'text-[#CFFF04]' : 'text-[#ff6b6b]'}`}
-              >
-                {status.text}
-              </motion.p>
-            )}
           </form>
         </div>
       </motion.div>
