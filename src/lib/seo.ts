@@ -11,6 +11,8 @@ export interface SeoMeta {
   description: string;
   canonical: string;
   keywords?: string[];
+  image?: string;
+  imageAlt?: string;
   jsonLd?: Record<string, unknown>[];
 }
 
@@ -31,11 +33,13 @@ function safeJson(value: unknown): string {
 
 const COMMON_KEYWORDS = [
   "web development agency",
-  "web design agency",
-  "custom website development",
-  "e-commerce website development",
-  "SEO services",
-  "web development company",
+  "custom website design",
+  "web design for startups",
+  "ecommerce website development",
+  "seo services for small business",
+  "saas product design agency",
+  "portfolio website design",
+  "affordable web development",
 ];
 
 function faqSchema(): Record<string, unknown> {
@@ -66,6 +70,11 @@ function articleSchema(
   };
 }
 
+const DEFAULT_IMAGE = SITE_LOGO;
+const DEFAULT_IMAGE_ALT = "Launchit logo";
+const IMAGE_WIDTH = "2000";
+const IMAGE_HEIGHT = "2000";
+
 function postSeo(post: WritingData): SeoMeta {
   const canonical = `${SITE_URL}/writings/${post.slug}`;
   return {
@@ -73,6 +82,8 @@ function postSeo(post: WritingData): SeoMeta {
     description: post.excerpt,
     canonical,
     keywords: COMMON_KEYWORDS,
+    image: DEFAULT_IMAGE,
+    imageAlt: DEFAULT_IMAGE_ALT,
     jsonLd: [articleSchema(post, canonical)],
   };
 }
@@ -84,6 +95,8 @@ const HOME: SeoMeta = {
     "Launchit is a web development agency building custom websites, e-commerce stores, portfolio sites and SaaS platforms, plus the SEO to get them found. Fast, crafted and built to convert.",
   canonical: `${SITE_URL}/`,
   keywords: COMMON_KEYWORDS,
+  image: DEFAULT_IMAGE,
+  imageAlt: DEFAULT_IMAGE_ALT,
   jsonLd: [faqSchema()],
 };
 
@@ -99,6 +112,8 @@ export function getSeoForPath(pathname: string): SeoMeta {
         "Custom web development, web design, e-commerce, SaaS, portfolio sites and SEO services from one agency. From your first line of code to your first customer.",
       canonical: `${SITE_URL}/services`,
       keywords: COMMON_KEYWORDS,
+      image: DEFAULT_IMAGE,
+      imageAlt: DEFAULT_IMAGE_ALT,
     };
   }
 
@@ -109,6 +124,8 @@ export function getSeoForPath(pathname: string): SeoMeta {
         "Start a project with our web development agency. Tell us what you're building and get a clear quote within two working days.",
       canonical: `${SITE_URL}/contact`,
       keywords: COMMON_KEYWORDS,
+      image: DEFAULT_IMAGE,
+      imageAlt: DEFAULT_IMAGE_ALT,
     };
   }
 
@@ -139,8 +156,16 @@ export function metaTagsToHtml(meta: SeoMeta): string {
     `<meta property="og:title" content="${esc(meta.title)}" />`,
     `<meta property="og:description" content="${esc(meta.description)}" />`,
     `<meta property="og:url" content="${esc(meta.canonical)}" />`,
+    `<meta property="og:locale" content="en_PK" />`,
+    `<meta property="og:type" content="website" />`,
+    `<meta property="og:image" content="${esc(meta.image ?? DEFAULT_IMAGE)}" />`,
+    `<meta property="og:image:width" content="${IMAGE_WIDTH}" />`,
+    `<meta property="og:image:height" content="${IMAGE_HEIGHT}" />`,
+    `<meta property="og:image:alt" content="${esc(meta.imageAlt ?? DEFAULT_IMAGE_ALT)}" />`,
     `<meta name="twitter:title" content="${esc(meta.title)}" />`,
     `<meta name="twitter:description" content="${esc(meta.description)}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:image" content="${esc(meta.image ?? DEFAULT_IMAGE)}" />`,
   ];
 
   if (meta.keywords?.length) {
@@ -199,8 +224,16 @@ export function applySeo(meta: SeoMeta): void {
   upsertProp("og:title", meta.title);
   upsertProp("og:description", meta.description);
   upsertProp("og:url", meta.canonical);
+  upsertProp("og:locale", "en_PK");
+  upsertProp("og:type", "website");
+  upsertProp("og:image", meta.image ?? DEFAULT_IMAGE);
+  upsertProp("og:image:width", IMAGE_WIDTH);
+  upsertProp("og:image:height", IMAGE_HEIGHT);
+  upsertProp("og:image:alt", meta.imageAlt ?? DEFAULT_IMAGE_ALT);
   upsertProp("twitter:title", meta.title);
   upsertProp("twitter:description", meta.description);
+  upsertProp("twitter:card", "summary_large_image");
+  upsertProp("twitter:image", meta.image ?? DEFAULT_IMAGE);
 
   document
     .querySelectorAll("script[data-seo-jsonld]")

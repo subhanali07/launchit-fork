@@ -1,21 +1,27 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { data, EASE } from "../utils";
+import { LazyVideo } from "../components/LazyVideo";
 
 import portfolioSite from "../assets/portfolio-site.mp4";
 import ecommerceSite from "../assets/ecommerce-site.mp4";
 import resumeBuilder from "../assets/resume-builder.mp4";
 import magurilife from "../assets/magurilife.mp4";
 import subhan from "../assets/subhan.mp4";
+import portfolioPoster from "../assets/portfolio-poster.webp";
+import ecommercePoster from "../assets/ecommerce-poster.webp";
+import resumePoster from "../assets/resume-poster.webp";
+import magurilifePoster from "../assets/magurilife-poster.webp";
+import subhanPoster from "../assets/subhan-poster.webp";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
-const VIDEOS: Record<string, { src: string }> = {
-  portfolio: { src: portfolioSite },
-  stationary: { src: ecommerceSite },
-  "naqsh-resume": { src: resumeBuilder },
-  "meguri-life": { src: magurilife },
-  "subhan-portfolio": { src: subhan },
+const VIDEOS: Record<string, { src: string; poster: string }> = {
+  portfolio: { src: portfolioSite, poster: portfolioPoster },
+  stationary: { src: ecommerceSite, poster: ecommercePoster },
+  "naqsh-resume": { src: resumeBuilder, poster: resumePoster },
+  "meguri-life": { src: magurilife, poster: magurilifePoster },
+  "subhan-portfolio": { src: subhan, poster: subhanPoster },
 };
 
 function ProjectMedia({
@@ -23,19 +29,15 @@ function ProjectMedia({
   video,
 }: {
   title: string;
-  video: { src: string };
+  video: { src: string; poster: string };
 }) {
   return (
     <div className="flex h-56 w-full items-center justify-center overflow-hidden bg-black sm:h-64">
-      <video
+      <LazyVideo
         src={video.src}
-        aria-label={title}
+        poster={video.poster}
+        alt={title}
         className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
       />
     </div>
   );

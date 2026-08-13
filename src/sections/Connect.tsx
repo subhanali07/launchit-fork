@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, MapPin } from 'lucide-react'
 import { EASE } from '../utils'
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
@@ -65,6 +65,17 @@ export default function Connect() {
               <p className="mt-6 max-w-md text-[15px] leading-relaxed text-(--text-muted) sm:mt-8 sm:text-base mb-4">
                 Have a project in mind or just want to say hello? Tell us a little
                 about it.
+              </p>
+              <p className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-(--text-muted)">
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin size={14} className="text-[#FF2E91]" />
+                  Islamabad, Pakistan
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin size={14} className="text-[#5D00FF]" />
+                  Karachi, Pakistan
+                </span>
+                <span className="text-(--text-faint)">— working with clients worldwide</span>
               </p>
             </div>
 

@@ -60,13 +60,24 @@ function writeFile(path: string, content: string) {
 }
 
 function buildSitemap(): string {
-  const lastmod = "2026-08-08";
-  const urls = ROUTES.map(
-    (route) => `  <url>
+  const lastmod = "2026-08-13";
+  const config: Record<string, { freq: string; priority: string }> = {
+    "/": { freq: "weekly", priority: "1.0" },
+    "/services": { freq: "monthly", priority: "0.8" },
+    "/contact": { freq: "monthly", priority: "0.8" },
+    "/privacy": { freq: "yearly", priority: "0.3" },
+  };
+  const urls = ROUTES.map((route) => {
+    const { freq, priority } = route.startsWith("/writings/")
+      ? { freq: "monthly", priority: "0.6" }
+      : (config[route] ?? { freq: "monthly", priority: "0.6" });
+    return `  <url>
     <loc>${SITE_URL}${route === "/" ? "/" : route}</loc>
     <lastmod>${lastmod}</lastmod>
-  </url>`,
-  ).join("\n");
+    <changefreq>${freq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+  }).join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

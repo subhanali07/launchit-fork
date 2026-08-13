@@ -1,6 +1,6 @@
-import blogAgencyImage from '../assets/blog-agency.jpg'
-import blogPresenceImage from '../assets/blog-presence.jpg'
-import blogSeoImage from '../assets/blog-seo.jpg'
+import blogAgencyImage from '../assets/blog-agency.webp'
+import blogPresenceImage from '../assets/blog-presence.webp'
+import blogSeoImage from '../assets/blog-seo.webp'
 
 export const EASE = [0.16, 1, 0.3, 1] as const
 

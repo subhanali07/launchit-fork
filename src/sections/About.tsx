@@ -3,15 +3,16 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { EASE } from "../utils";
+import { LazyVideo } from "../components/LazyVideo";
 
 import galaxies from "../assets/galaxies-colliding.mp4";
-import galaxiesPoster from "../assets/galaxies-poster.jpg";
+import galaxiesPoster from "../assets/galaxies-poster.webp";
 import fishes from "../assets/fishes.mp4";
-import fishesPoster from "../assets/fishes-poster.jpg";
+import fishesPoster from "../assets/fishes-poster.webp";
 import flowers from "../assets/flowers.mp4";
-import flowersPoster from "../assets/flowers-poster.jpg";
+import flowersPoster from "../assets/flowers-poster.webp";
 import her from "../assets/her.mp4";
-import herPoster from "../assets/her-poster.jpg";
+import herPoster from "../assets/her-poster.webp";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
@@ -37,16 +38,11 @@ function VideoTile({
       className={`${className} overflow-hidden rounded-[20px] border border-(--border) bg-black`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
-      <video
+      <LazyVideo
         src={src}
         poster={poster}
-        aria-label={alt}
+        alt={alt}
         className="h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
       />
     </div>
   );
