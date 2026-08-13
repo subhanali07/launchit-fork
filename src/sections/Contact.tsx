@@ -31,7 +31,8 @@ export function Contact() {
       }, { publicKey: PUBLIC_KEY })
       setStatus('sent')
       form.reset()
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error:', err)
       setStatus('error')
     }
   }
@@ -61,6 +62,12 @@ export function Contact() {
           viewport={{ once: true, margin: '-10% 0px' }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
           onSubmit={handleSubmit}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault()
+              e.currentTarget.requestSubmit()
+            }
+          }}
           className="space-y-8"
         >
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -111,7 +118,7 @@ export function Contact() {
               disabled={status === 'sending'}
             />
             {status === 'error' && (
-              <p className="text-sm text-red-500">Something went wrong — please try again.</p>
+              <p className="text-sm text-red-500">Message not sent — please try again.</p>
             )}
           </div>
         </motion.form>

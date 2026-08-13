@@ -32,7 +32,8 @@ export default function Connect() {
       }, { publicKey: PUBLIC_KEY })
       setStatus('sent')
       form.reset()
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error:', err)
       setStatus('error')
     }
   }
@@ -82,7 +83,16 @@ export default function Connect() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex min-w-0 flex-col gap-7 lg:border-l lg:border-(--border) lg:pl-14 xl:pl-20">
+          <form
+            onSubmit={handleSubmit}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault()
+                e.currentTarget.requestSubmit()
+              }
+            }}
+            className="flex min-w-0 flex-col gap-7 lg:border-l lg:border-(--border) lg:pl-14 xl:pl-20"
+          >
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8">
               <input
                 type="text"
@@ -122,7 +132,7 @@ export default function Connect() {
               </button>
               {status === 'error' && (
                 <span className="text-center text-sm font-medium text-red-400 sm:text-right">
-                  Something went wrong — please try again.
+                  Message not sent — please try again.
                 </span>
               )}
               <span className="text-center text-sm font-medium leading-relaxed text-(--text-faint) sm:text-right">
