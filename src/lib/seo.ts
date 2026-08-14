@@ -35,11 +35,16 @@ const COMMON_KEYWORDS = [
   "web development agency",
   "custom website design",
   "web design for startups",
+  "web development agencies in pakistan",
+  "web services karachi",
+  "web services islamabad",
+  "web services rawalpindi",
+
   "ecommerce website development",
   "seo services for small business",
   "saas product design agency",
   "portfolio website design",
-  "affordable web development",
+  "affordable web development in pakistan",
 ];
 
 function faqSchema(): Record<string, unknown> {
