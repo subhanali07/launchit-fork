@@ -2,7 +2,7 @@ import { data } from "../utils";
 
 type WritingData = (typeof data.writings)[number];
 
-export const SITE_URL = "https://launchit.studio";
+export const SITE_URL = "https://launchitweb.com";
 export const SITE_NAME = "Launchit";
 export const SITE_LOGO = `${SITE_URL}/Black%20and%20Red%20Bold%20Creative%20Scribble%20Artist%20Logo.png`;
 
