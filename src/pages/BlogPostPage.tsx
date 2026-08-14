@@ -1,6 +1,7 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { data } from "../utils";
+import Connect from "../sections/Connect";
 import { Footer } from "../sections/Footer";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
@@ -97,6 +98,7 @@ export default function BlogPostPage() {
         </div>
       </article>
 
+      <Connect />
       <Footer />
     </div>
   );

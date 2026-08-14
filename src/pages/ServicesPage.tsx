@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { webDevServices } from "../lib/webDevServices";
 import { Footer } from "../sections/Footer";
 
 const SERVICES = [
@@ -10,11 +11,12 @@ const SERVICES = [
     description:
       "We design and build the website itself, from the first sketch to a live, working site. Every page is custom, fast to load and easy to use on any device.",
     includes: [
-      "Custom design, not a template",
+      "Maintenance and ongoing support",
       "Mobile responsive layout",
       "Fast load times",
       "Content management so you can update it yourself",
     ],
+    subServices: webDevServices,
   },
   {
     number: "02",
@@ -142,25 +144,51 @@ export default function ServicesPage() {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.2fr_1fr]">
-                  <p className="max-w-lg text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
-                    {service.description}
-                  </p>
+                <div>
+                  <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.2fr_1fr]">
+                    <p className="max-w-lg text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
+                      {service.description}
+                    </p>
 
-                  <ul className="flex flex-col gap-2.5">
-                    {service.includes.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2.5 text-sm text-(--text-soft) sm:text-[15px]"
-                      >
-                        <span
-                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ backgroundColor: service.accent }}
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="flex flex-col gap-2.5">
+                      {service.includes.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2.5 text-sm text-(--text-soft) sm:text-[15px]"
+                        >
+                          <span
+                            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                            style={{ backgroundColor: service.accent }}
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {service.subServices && (
+                    <div className="mt-8 border-t border-(--border) pt-6">
+                      <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#CFFF04]">
+                        in web development we also do
+                      </p>
+                      <div className="flex flex-col gap-1">
+                        {service.subServices.map((sub) => (
+                          <Link
+                            key={sub.slug}
+                            to={`/services/${sub.slug}`}
+                            className="group flex items-center gap-2.5 py-1.5 text-sm font-semibold text-(--text-soft) transition-colors hover:text-[#CFFF04] sm:text-[15px]"
+                          >
+                            <ArrowUpRight
+                              size={14}
+                              strokeWidth={2.5}
+                              className="shrink-0 text-[#FF2E91] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                            />
+                            {sub.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </article>
             );

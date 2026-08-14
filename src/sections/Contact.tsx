@@ -118,7 +118,7 @@ export function Contact() {
               disabled={status === 'sending'}
             />
             {status === 'error' && (
-              <p className="text-sm text-red-500">Message not sent — please try again.</p>
+              <p className="text-sm text-red-500">Message not sent, please try again.</p>
             )}
           </div>
         </motion.form>

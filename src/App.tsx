@@ -5,6 +5,7 @@ import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import BlogPostPage from "./pages/BlogPostPage";
+import WebDevServicePage from "./pages/WebDevServicePage";
 import { Navbar } from "./sections/Navbar";
 import { CookieConsent } from "./components/CookieConsent";
 import { Seo } from "./components/Seo";
@@ -34,6 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:slug" element={<WebDevServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/writings/:slug" element={<BlogPostPage />} />

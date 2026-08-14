@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import Connect from "../sections/Connect";
 import { Footer } from "../sections/Footer";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
@@ -138,6 +139,7 @@ export default function PrivacyPolicyPage() {
         </p>
       </main>
 
+      <Connect />
       <Footer />
     </div>
   );

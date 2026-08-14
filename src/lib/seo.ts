@@ -1,4 +1,5 @@
 import { data } from "../utils";
+import { webDevServices } from "./webDevServices";
 
 type WritingData = (typeof data.writings)[number];
 
@@ -143,9 +144,24 @@ export function getSeoForPath(pathname: string): SeoMeta {
     };
   }
 
-  const match = /^\/writings\/([^/]+)$/.exec(path);
+  const match = /^\/services\/([^/]+)$/.exec(path);
   if (match) {
-    const post = data.writings.find((w) => w.slug === match[1]);
+    const service = webDevServices.find((s) => s.slug === match[1]);
+    if (service) {
+      return {
+        title: `${service.title} | Launchit Web Development Agency`,
+        description: service.description,
+        canonical: `${SITE_URL}/services/${service.slug}`,
+        keywords: service.keywords,
+        image: DEFAULT_IMAGE,
+        imageAlt: DEFAULT_IMAGE_ALT,
+      };
+    }
+  }
+
+  const matchWriting = /^\/writings\/([^/]+)$/.exec(path);
+  if (matchWriting) {
+    const post = data.writings.find((w) => w.slug === matchWriting[1]);
     if (post) return postSeo(post);
   }
 

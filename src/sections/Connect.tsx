@@ -75,7 +75,7 @@ export default function Connect() {
                   <MapPin size={14} className="text-[#5D00FF]" />
                   Karachi, Pakistan
                 </span>
-                <span className="text-(--text-faint)">— working with clients worldwide</span>
+                <span className="text-(--text-faint)">working with clients worldwide</span>
               </p>
             </div>
 
@@ -143,7 +143,7 @@ export default function Connect() {
               </button>
               {status === 'error' && (
                 <span className="text-center text-sm font-medium text-red-400 sm:text-right">
-                  Message not sent — please try again.
+                  Message not sent, please try again.
                 </span>
               )}
               <span className="text-center text-sm font-medium leading-relaxed text-(--text-faint) sm:text-right">
