@@ -37,7 +37,7 @@ const COMMON_KEYWORDS = [
   "web design for startups",
   "web development agencies in pakistan",
   "web services karachi",
-  "web services islamabad",
+  "web services iawalpindislamabad",
   "web services rawalpindi",
 
   "ecommerce website development",
