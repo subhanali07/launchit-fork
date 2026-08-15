@@ -8,7 +8,7 @@ const NAV = [
   { label: "Home", to: "/#hero" },
   { label: "Services", to: "/services" },
   { label: "About", to: "/#about" },
-  { label: "Projects", to: "/#projects" },
+  { label: "Projects", to: "/#featured" },
   { label: "FAQs", to: "/#faqs" },
   { label: "Contact", to: "/contact" },
 ];
@@ -38,6 +38,22 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     to={item.to}
+                    onClick={
+                      item.to.startsWith("/#")
+                        ? (e) => {
+                            const id = item.to.split("#")[1];
+                            if (window.location.pathname === "/") {
+                              e.preventDefault();
+                              const el = document.getElementById(id);
+                              if (el) {
+                                el.scrollIntoView({ behavior: "smooth", block: "start" });
+                              } else {
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                              }
+                            }
+                          }
+                        : undefined
+                    }
                     className="text-lg text-(--text-muted) transition-colors duration-300 hover:text-(--lime-text)"
                   >
                     {item.label}
