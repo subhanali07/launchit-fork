@@ -87,19 +87,17 @@ function Hero() {
           type="button"
           aria-label="Previous slide"
           onClick={() => go(-1)}
-          className="absolute left-2 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-sm backdrop-blur transition-colors hover:bg-white hover:text-black sm:left-6 sm:h-12 sm:w-12"
+          className="absolute left-2 top-1/2 z-20 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-sm backdrop-blur transition-colors hover:bg-white hover:text-black sm:left-6 sm:flex sm:h-12 sm:w-12"
         >
-          <ArrowLeft size={18} className="sm:hidden" />
-          <ArrowLeft size={20} className="hidden sm:block" />
+          <ArrowLeft size={20} />
         </button>
         <button
           type="button"
           aria-label="Next slide"
           onClick={() => go(1)}
-          className="absolute right-2 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-sm backdrop-blur transition-colors hover:bg-white hover:text-black sm:right-6 sm:h-12 sm:w-12"
+          className="absolute right-2 top-1/2 z-20 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-sm backdrop-blur transition-colors hover:bg-white hover:text-black sm:right-6 sm:flex sm:h-12 sm:w-12"
         >
-          <ArrowRight size={18} className="sm:hidden" />
-          <ArrowRight size={20} className="hidden sm:block" />
+          <ArrowRight size={20} />
         </button>
 
         <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-14 pt-2 text-center sm:px-12 sm:pb-16">
