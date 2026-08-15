@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { label: 'HOME', number: '02', to: '/' },
   { label: 'SERVICES', number: '12', to: '/services' },
   { label: 'ABOUT', number: '14', to: '/#about' },
-  { label: 'PROJECTS', number: '10', to: '/#projects' },
+  { label: 'PROJECTS', number: '10', to: '/#featured' },
   { label: 'FAQS', number: '16', to: '/#faqs' },
   { label: 'CONTACT US', number: '19', to: '/contact' },
 ]
@@ -15,7 +15,7 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('HOME')
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(true)
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -25,15 +25,18 @@ export function Navbar() {
   }, [open])
 
   useEffect(() => {
-    const el = document.getElementById('statement')
-    if (!el) return
+    const el = document.getElementById('hero')
     const check = () => {
       if (open) {
         setDark(false)
         return
       }
+      if (!el) {
+        setDark(false)
+        return
+      }
       const rect = el.getBoundingClientRect()
-      setDark(rect.top < 100 && rect.bottom > 30)
+      setDark(rect.top < 40 && rect.bottom > 20)
     }
     check()
     window.addEventListener('scroll', check, { passive: true })
@@ -45,9 +48,9 @@ export function Navbar() {
   }, [open])
 
   const iconClass = open
-    ? 'text-[#CFFF04]'
+    ? 'text-(--text)'
     : dark
-      ? 'text-[#1b1b1b]'
+      ? 'text-white'
       : 'text-(--text)'
 
   return (
@@ -72,7 +75,7 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center justify-between px-6 py-6 sm:px-14 sm:py-10">
-          <div className="flex items-center gap-2 text-[#CFFF04]">
+          <div className="flex items-center gap-2 text-(--lime-text)">
             <span className="h-px w-24 bg-[#CFFF04] sm:w-40" />
             <ArrowUpRight size={16} strokeWidth={2.5} />
           </div>
@@ -99,7 +102,7 @@ export function Navbar() {
                   <span
                     className={cn(
                       'text-xs font-medium',
-                      isActive ? 'text-black/60' : 'text-[#CFFF04]',
+                      isActive ? 'text-black/60' : 'text-(--lime-text)',
                     )}
                   >
                     /{item.number}

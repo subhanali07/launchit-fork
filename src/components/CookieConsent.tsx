@@ -184,13 +184,13 @@ export function CookieConsent() {
             className="fixed inset-x-3 bottom-3 z-[80] sm:inset-x-auto sm:right-6 sm:bottom-6 sm:left-auto sm:w-[26rem]"
           >
             <div className="rounded-[1.75rem] bg-(--surface) p-6 text-(--text) shadow-2xl ring-1 ring-(--border)">
-              <div className="flex items-center gap-2 text-[#CFFF04]">
+              <div className="flex items-center gap-2 text-(--lime-text)">
                 <Cookie size={18} strokeWidth={2} />
                 <span className="text-xs font-bold uppercase tracking-widest">
                   Cookies
                 </span>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-(--text-soft)">
+              <p className="mt-3 text-base leading-relaxed text-(--text-soft)">
                 We use cookies to improve your experience and understand how the
                 site is used. You're in control, choose what you allow.
               </p>
@@ -198,21 +198,21 @@ export function CookieConsent() {
                 <button
                   type="button"
                   onClick={acceptAll}
-                  className="rounded-full bg-[#CFFF04] px-5 py-2.5 text-sm font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.03]"
+                  className="rounded-full bg-[#CFFF04] px-5 py-2.5 text-base font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.03]"
                 >
                   Accept all
                 </button>
                 <button
                   type="button"
                   onClick={declineAll}
-                    className="rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-semibold text-(--text) transition-colors duration-300 hover:border-(--border-strong)"
+                    className="rounded-full border border-(--border-strong) px-5 py-2.5 text-base font-semibold text-(--text) transition-colors duration-300 hover:border-(--border-strong)"
                 >
                   Decline
                 </button>
                 <button
                   type="button"
                   onClick={openPreferences}
-                  className="px-3 py-2.5 text-sm font-medium text-(--text-muted) transition-colors duration-300 hover:text-(--text)"
+                  className="px-3 py-2.5 text-base font-medium text-(--text-muted) transition-colors duration-300 hover:text-(--text)"
                 >
                   Manage preferences
                 </button>
@@ -255,7 +255,7 @@ export function CookieConsent() {
                   >
                     Cookie preferences
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-(--text-muted)">
+                  <p className="mt-2 text-base leading-relaxed text-(--text-muted)">
                     Manage how we use cookies. Your choices are saved on this
                     device and can be changed any time from the footer.
                   </p>
@@ -277,15 +277,15 @@ export function CookieConsent() {
                     className="flex items-center justify-between gap-6 px-6 py-5 sm:px-8"
                   >
                     <div>
-                      <p className="text-[15px] font-semibold">
+                      <p className="text-lg font-semibold">
                         {category.title}
                         {category.locked && (
-                          <span className="ml-2 text-[11px] font-bold uppercase tracking-wider text-[#CFFF04]">
+                          <span className="ml-2 text-[11px] font-bold uppercase tracking-wider text-(--lime-text)">
                             Always on
                           </span>
                         )}
                       </p>
-                      <p className="mt-1 max-w-xs text-sm leading-relaxed text-(--text-muted)">
+                      <p className="mt-1 max-w-xs text-base leading-relaxed text-(--text-muted)">
                         {category.desc}
                       </p>
                     </div>
@@ -303,7 +303,7 @@ export function CookieConsent() {
                 <button
                   type="button"
                   onClick={declineAll}
-                  className="text-sm font-medium text-(--text-muted) transition-colors duration-300 hover:text-(--text)"
+                  className="text-base font-medium text-(--text-muted) transition-colors duration-300 hover:text-(--text)"
                 >
                   Decline all
                 </button>
@@ -311,14 +311,14 @@ export function CookieConsent() {
                   <button
                     type="button"
                     onClick={acceptAll}
-                  className="rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-semibold text-(--text) transition-colors duration-300 hover:border-(--border-strong)"
+                  className="rounded-full border border-(--border-strong) px-5 py-2.5 text-base font-semibold text-(--text) transition-colors duration-300 hover:border-(--border-strong)"
                   >
                     Accept all
                   </button>
                   <button
                     type="button"
                     onClick={confirmChoices}
-                    className="rounded-full bg-[#CFFF04] px-5 py-2.5 text-sm font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.03]"
+                    className="rounded-full bg-[#CFFF04] px-5 py-2.5 text-base font-semibold text-[#1C1C1C] transition-transform duration-300 hover:scale-[1.03]"
                   >
                     Confirm choices
                   </button>

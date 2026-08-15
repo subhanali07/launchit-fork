@@ -22,7 +22,7 @@ export function Button({
   const [hovered, setHovered] = useState(false)
 
   const base =
-    'group inline-flex items-center justify-center gap-3 rounded-full text-[15px] font-semibold tracking-wide transition-all duration-500'
+    'group inline-flex items-center justify-center gap-3 rounded-full text-lg font-semibold tracking-wide transition-all duration-500'
 
   const styles = {
     primary: 'bg-ink text-paper px-8 py-4 hover:scale-[1.03] hover:bg-black',

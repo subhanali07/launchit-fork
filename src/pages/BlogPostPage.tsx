@@ -23,13 +23,13 @@ export default function BlogPostPage() {
         <Link
           to="/"
           aria-label="Launchit home"
-          className={`${FONT} text-2xl font-black tracking-tight text-[#CFFF04]`}
+          className={`${FONT} text-2xl font-black tracking-tight text-(--lime-text)`}
         >
           launchit.
         </Link>
         <Link
           to="/#writings"
-          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
+          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-base font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
         >
           <ArrowUpRight size={16} />
           all writings
@@ -72,7 +72,7 @@ export default function BlogPostPage() {
               {section.paragraphs.map((paragraph) => (
                 <p
                   key={paragraph}
-                  className="mt-4 text-[15px] leading-relaxed text-(--text-muted) sm:text-base"
+                  className="mt-4 text-lg leading-relaxed text-(--text-muted) sm:text-base"
                 >
                   {paragraph}
                 </p>
@@ -84,14 +84,14 @@ export default function BlogPostPage() {
         <div className="mt-16 flex flex-col items-start gap-5 border-t border-(--border) pt-10">
           <Link
             to="/#writings"
-            className={`${FONT} inline-flex items-center gap-2 text-xl font-black text-[#CFFF04] transition-transform duration-300 hover:-translate-y-0.5`}
+            className={`${FONT} inline-flex items-center gap-2 text-xl font-black text-(--lime-text) transition-transform duration-300 hover:-translate-y-0.5`}
           >
             back to writings
             <ArrowUpRight size={20} strokeWidth={2.5} />
           </Link>
           <Link
             to="/contact"
-            className="rounded-full bg-[#CFFF04] px-7 py-3.5 text-sm font-semibold text-[#1b1b1b] transition-transform duration-300 hover:scale-[1.03]"
+            className="rounded-full bg-[#CFFF04] px-7 py-3.5 text-base font-semibold text-[#1b1b1b] transition-transform duration-300 hover:scale-[1.03]"
           >
             start a project with us
           </Link>

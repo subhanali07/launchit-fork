@@ -9,7 +9,7 @@ const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const inputClass =
-  'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-[15px] text-ink transition-colors duration-300 placeholder:text-sub/50 focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10'
+  'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-lg text-ink transition-colors duration-300 placeholder:text-sub/50 focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10'
 
 export function Contact() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -118,7 +118,7 @@ export function Contact() {
               disabled={status === 'sending'}
             />
             {status === 'error' && (
-              <p className="text-sm text-red-500">Message not sent, please try again.</p>
+              <p className="text-base text-red-500">Message not sent, please try again.</p>
             )}
           </div>
         </motion.form>

@@ -268,7 +268,7 @@ export const data = {
     {
       question: 'How long does a project take?',
       answer:
-        'A typical website ships in 2–6 weeks depending on scope. E-commerce and SaaS builds are planned milestone by milestone so you always know where things stand.',
+        'A typical website ships in 2-6 weeks depending on scope. E-commerce and SaaS builds are planned milestone by milestone so you always know where things stand.',
     },
     {
       question: 'Do you work with clients remotely?',

@@ -14,14 +14,13 @@
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem("launchit-theme");
-          var light = stored === "light" ||
-            (!stored && window.matchMedia("(prefers-color-scheme: light)").matches);
+          var stored = localStorage.getItem("launchit-theme-v2");
+          var light = stored !== "dark";
           if (light) document.documentElement.classList.add("light");
         } catch (e) {}
       })();
     </script>
-    <meta name="theme-color" content="#1b1b1b" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="author" content="Launchit" />
 
     <!--SEO:START-->

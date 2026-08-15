@@ -28,27 +28,35 @@
   }
 
   :root {
-    --page: #1b1b1b;
-    --surface: #1c1c1c;
-    --card: #242424;
-    --text: #ffffff;
-    --text-soft: rgb(255 255 255 / 0.8);
-    --text-muted: rgb(255 255 255 / 0.65);
-    --text-faint: rgb(255 255 255 / 0.45);
-    --border: rgb(255 255 255 / 0.12);
-    --border-strong: rgb(255 255 255 / 0.25);
+    --page: #060606;
+    --surface: #060606;
+    --card: #161616;
+    --text: #f2f0ea;
+    --text-soft: rgb(242 240 234 / 0.9);
+    --text-muted: rgb(242 240 234 / 0.85);
+    --text-faint: rgb(242 240 234 / 0.6);
+    --border: rgb(242 240 234 / 0.15);
+    --border-strong: rgb(242 240 234 / 0.3);
+
+    --lime-text: #cfff04;
+    --pink-text: #ff2e91;
+    --indigo-text: #9b7dff;
   }
 
   html.light {
-    --page: #f6f5f1;
+    --page: #ffffff;
     --surface: #ffffff;
-    --card: #efeeea;
-    --text: #1b1b1b;
-    --text-soft: rgb(27 27 27 / 0.8);
-    --text-muted: rgb(27 27 27 / 0.65);
-    --text-faint: rgb(27 27 27 / 0.5);
-    --border: rgb(27 27 27 / 0.12);
-    --border-strong: rgb(27 27 27 / 0.28);
+    --card: #f3f0e8;
+    --text: #131109;
+    --text-soft: rgb(19 17 9 / 0.92);
+    --text-muted: rgb(19 17 9 / 0.88);
+    --text-faint: rgb(19 17 9 / 0.68);
+    --border: rgb(19 17 9 / 0.14);
+    --border-strong: rgb(19 17 9 / 0.28);
+
+    --lime-text: #4a6400;
+    --pink-text: #a01258;
+    --indigo-text: #3f0bb3;
   }
 
   body {
@@ -57,6 +65,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   ::selection {

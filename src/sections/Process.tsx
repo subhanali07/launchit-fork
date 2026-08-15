@@ -55,7 +55,7 @@ export function Process() {
                     />
                   </div>
                   <h3 className="font-serif text-2xl tracking-tight md:text-3xl">{step.title}</h3>
-                  <p className="mt-4 text-[15px] leading-relaxed text-sub">{step.desc}</p>
+                  <p className="mt-4 text-lg leading-relaxed text-sub">{step.desc}</p>
                 </motion.div>
               )
             })}

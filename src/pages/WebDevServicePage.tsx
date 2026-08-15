@@ -42,13 +42,13 @@ export default function WebDevServicePage() {
         <Link
           to="/"
           aria-label="Launchit home"
-          className={`${FONT} text-2xl font-black tracking-tight text-[#CFFF04]`}
+          className={`${FONT} text-2xl font-black tracking-tight text-(--lime-text)`}
         >
           launchit.
         </Link>
         <Link
           to="/services"
-          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
+          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-base font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
         >
           <ArrowUpRight size={16} />
           all services
@@ -56,7 +56,7 @@ export default function WebDevServicePage() {
       </nav>
 
       <header className="px-6 pt-14 pb-14 sm:px-10 sm:pt-20 sm:pb-16 md:px-[5.5%]">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#CFFF04]">
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-(--lime-text)">
           web development
         </p>
         <h1
@@ -71,7 +71,7 @@ export default function WebDevServicePage() {
 
       <main className="px-6 pb-20 sm:px-10 md:px-[5.5%]">
         <section className="grid grid-cols-1 gap-10 border-t border-(--border) py-12 sm:py-16 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
-          <p className="max-w-2xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
+          <p className="max-w-2xl text-lg leading-relaxed text-(--text-muted) sm:text-base">
             {service.description}
           </p>
 
@@ -79,7 +79,7 @@ export default function WebDevServicePage() {
             {service.includes.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-2.5 text-sm text-(--text-soft) sm:text-[15px]"
+                className="flex items-start gap-2.5 text-base text-(--text-soft) sm:text-lg"
               >
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#CFFF04]" />
                 {item}
@@ -114,7 +114,7 @@ export default function WebDevServicePage() {
                 {section.paragraphs.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="max-w-2xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base"
+                    className="max-w-2xl text-lg leading-relaxed text-(--text-muted) sm:text-base"
                   >
                     {paragraph}
                   </p>
@@ -125,16 +125,16 @@ export default function WebDevServicePage() {
         </div>
 
         <section id="stack" className="pt-16 sm:pt-24">
-          <div className="flex items-center gap-2 text-[#CFFF04]">
+          <div className="flex items-center gap-2 text-(--lime-text)">
             <span className="h-px w-24 bg-[#CFFF04] sm:w-40" />
             <ArrowUpRight size={16} strokeWidth={2.5} />
           </div>
           <h2
             className={`${FONT} mt-8 text-[clamp(2.2rem,6vw,4.5rem)] font-black leading-[0.95] tracking-[-0.05em]`}
           >
-            our tech <span className="text-[#CFFF04]">stack</span>
+            our tech <span className="text-(--lime-text)">stack</span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-(--text-muted) sm:text-base">
             The tools we use to build and secure your project.
           </p>
 
@@ -142,7 +142,7 @@ export default function WebDevServicePage() {
             {service.stack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-(--border-strong) bg-(--surface) px-5 py-2.5 text-sm font-medium text-(--text-soft) transition-colors hover:border-[#CFFF04] hover:text-[#CFFF04]"
+                className="rounded-full border border-(--border-strong) bg-(--surface) px-5 py-2.5 text-base font-medium text-(--text-soft) transition-colors hover:border-[#CFFF04] hover:text-(--lime-text)"
               >
                 {tech}
               </span>
@@ -151,16 +151,16 @@ export default function WebDevServicePage() {
         </section>
 
         <section id="process" className="pt-16 sm:pt-24">
-          <div className="flex items-center gap-2 text-[#CFFF04]">
+          <div className="flex items-center gap-2 text-(--lime-text)">
             <span className="h-px w-24 bg-[#CFFF04] sm:w-40" />
             <ArrowUpRight size={16} strokeWidth={2.5} />
           </div>
           <h2
             className={`${FONT} mt-8 text-[clamp(2.2rem,6vw,4.5rem)] font-black leading-[0.95] tracking-[-0.05em]`}
           >
-            how we <span className="text-[#CFFF04]">work</span>
+            how we <span className="text-(--lime-text)">work</span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-(--text-muted) sm:text-base">
             A simple, transparent process. No jargon, no surprises, just a
             clear path from idea to launch.
           </p>
@@ -168,13 +168,13 @@ export default function WebDevServicePage() {
           <div className="mt-12 grid grid-cols-1 gap-[2px] bg-(--border) sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map((step) => (
               <div key={step.num} className="bg-(--page) p-7 sm:p-8">
-                <span className={`${FONT} text-4xl font-black text-[#FF2E91]`}>
+                <span className={`${FONT} text-4xl font-black text-(--pink-text)`}>
                   {step.num}
                 </span>
                 <h3 className={`${FONT} mt-5 text-xl font-black tracking-tight`}>
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-(--text-muted)">
+                <p className="mt-3 text-base leading-relaxed text-(--text-muted)">
                   {step.desc}
                 </p>
               </div>

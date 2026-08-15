@@ -1,8 +1,7 @@
 import Hero from "../sections/Hero";
-import Statement from "../sections/Statement";
 import Services from "../sections/Services";
-import Projects from "../sections/Projects";
 import About from "../sections/About";
+import FeaturedProjects from "../sections/FeaturedProjects";
 import Writings from "../sections/Writings";
 import FAQ from "../sections/FAQ";
 import Connect from "../sections/Connect";
@@ -12,10 +11,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Statement />
       <Services />
       <About />
-      <Projects />
+      <FeaturedProjects />
       <Connect />
       <Writings />
       <FAQ />

@@ -20,14 +20,14 @@ export default function Writings() {
         transition={{ duration: 0.8, ease: EASE }}
         className="mb-10 sm:mb-14"
       >
-        <div className="flex items-center gap-2 text-[#CFFF04]">
+        <div className="flex items-center gap-2 text-(--lime-text)">
           <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
           <ArrowUpRight size={16} strokeWidth={2.5} />
         </div>
         <h2
           className={`${FONT} mt-8 font-black tracking-tight text-(--text) leading-none text-4xl sm:text-6xl`}
         >
-          writings <span className="text-[#5D00FF]">&amp; stories</span>
+          writings <span className="text-(--indigo-text)">&amp; stories</span>
         </h2>
       </motion.div>
 
@@ -39,7 +39,7 @@ export default function Writings() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 0.7, ease: EASE, delay: (i % 3) * 0.1 }}
-            className="group flex flex-col bg-(--surface) transition-colors duration-300 hover:bg-(--card)"
+            className="group flex flex-col bg-(--card) transition duration-300 hover:brightness-125"
           >
             <Link to={`/writings/${writing.slug}`} className="flex h-full flex-col">
               <div className="relative overflow-hidden">
@@ -64,11 +64,11 @@ export default function Writings() {
                 </div>
 
                 <h3
-                  className={`${FONT} mt-4 text-xl font-bold leading-tight text-(--text) transition-colors duration-300 group-hover:text-[#CFFF04] sm:text-2xl`}
+                  className={`${FONT} mt-4 text-xl font-bold leading-tight text-(--text) transition-colors duration-300 group-hover:text-(--lime-text) sm:text-2xl`}
                 >
                   {writing.title}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-(--text-muted) sm:text-[15px]">
+                <p className="mt-4 text-base leading-relaxed text-(--text-muted) sm:text-lg">
                   {writing.excerpt}
                 </p>
 

@@ -12,13 +12,13 @@ export default function ContactPage() {
         <Link
           to="/"
           aria-label="Launchit home"
-          className={`${FONT} text-2xl font-black tracking-tight text-[#CFFF04]`}
+          className={`${FONT} text-2xl font-black tracking-tight text-(--lime-text)`}
         >
           launchit.
         </Link>
         <Link
           to="/"
-          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
+          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-base font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
         >
           <ArrowUpRight size={16} />
           back home

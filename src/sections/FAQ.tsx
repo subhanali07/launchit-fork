@@ -27,9 +27,9 @@ export default function FAQ() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-center">
           <h2
-            className={`${FONT} font-black tracking-tight leading-[1.1] text-5xl sm:text-6xl md:text-7xl`}
+            className={`${FONT} font-black tracking-tight leading-[1.1] text-5xl sm:text-6xl md:text-7xl self-center mt-6 lg:mt-0`}
           >
             <span className="block text-[#1C1C1C]">
               You've got
@@ -52,7 +52,7 @@ export default function FAQ() {
                 viewport={{ once: true, margin: "-8% 0px" }}
                 transition={{ duration: 0.6, ease: EASE, delay: i * 0.06 }}
               >
-                <span className="inline-block bg-[#1C1C1C] text-[#CFFF04] font-num text-xs font-bold px-2.5 py-1 rounded-sm mb-4">
+                <span className="inline-block bg-[#1C1C1C] text-(--lime-text) font-num text-xs font-bold px-2.5 py-1 rounded-sm mb-4">
                   {String(i + 1).padStart(3, "0")}
                 </span>
                 <h3
@@ -60,7 +60,7 @@ export default function FAQ() {
                 >
                   {faq.question}
                 </h3>
-                <p className="text-[15px] leading-relaxed text-black/70 max-w-sm">
+                <p className="text-lg leading-relaxed text-black/85 max-w-sm">
                   {faq.answer}
                 </p>
               </motion.div>

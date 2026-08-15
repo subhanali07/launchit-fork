@@ -41,8 +41,8 @@ export function Testimonials() {
                     loading="lazy"
                   />
                   <div>
-                    <p className="text-[15px] font-semibold">{item.name}</p>
-                    <p className="text-sm text-sub">{item.role}</p>
+                    <p className="text-lg font-semibold">{item.name}</p>
+                    <p className="text-base text-sub">{item.role}</p>
                   </div>
                 </footer>
               </motion.blockquote>

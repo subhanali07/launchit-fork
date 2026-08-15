@@ -6,6 +6,7 @@ import { StaticRouter } from "react-router";
 import App from "../src/App";
 import { getSeoForPath, metaTagsToHtml, SITE_URL } from "../src/lib/seo";
 import { data } from "../src/utils";
+import { industryRoutes } from "../src/lib/industries";
 
 const SSR_DIR = dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = resolve(SSR_DIR, "../dist");
@@ -15,6 +16,7 @@ const ROUTES = [
   "/services",
   "/contact",
   "/privacy",
+  ...industryRoutes,
   ...data.writings.map((writing) => `/writings/${writing.slug}`),
 ];
 
@@ -60,7 +62,7 @@ function writeFile(path: string, content: string) {
 }
 
 function buildSitemap(): string {
-  const lastmod = "2026-08-13";
+  const lastmod = "2026-08-15";
   const config: Record<string, { freq: string; priority: string }> = {
     "/": { freq: "weekly", priority: "1.0" },
     "/services": { freq: "monthly", priority: "0.8" },
@@ -70,7 +72,9 @@ function buildSitemap(): string {
   const urls = ROUTES.map((route) => {
     const { freq, priority } = route.startsWith("/writings/")
       ? { freq: "monthly", priority: "0.6" }
-      : (config[route] ?? { freq: "monthly", priority: "0.6" });
+      : route.startsWith("/industries/")
+        ? { freq: "monthly", priority: "0.8" }
+        : (config[route] ?? { freq: "monthly", priority: "0.6" });
     return `  <url>
     <loc>${SITE_URL}${route === "/" ? "/" : route}</loc>
     <lastmod>${lastmod}</lastmod>

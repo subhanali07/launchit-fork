@@ -1,5 +1,7 @@
 import { data } from "../utils";
 import { webDevServices } from "./webDevServices";
+import { getIndustry } from "./industries";
+import type { IndustryData } from "./industries";
 
 type WritingData = (typeof data.writings)[number];
 
@@ -96,7 +98,7 @@ function postSeo(post: WritingData): SeoMeta {
 
 const HOME: SeoMeta = {
   title:
-    "Launchit - Web Development Agency | Custom Websites, E-commerce & SEO",
+    "Launchit | Web Development Agency | Custom Websites, E-commerce & SEO",
   description:
     "Launchit is a web development agency building custom websites, e-commerce stores, portfolio sites and SaaS platforms, plus the SEO to get them found. Fast, crafted and built to convert.",
   canonical: `${SITE_URL}/`,
@@ -106,8 +108,76 @@ const HOME: SeoMeta = {
   jsonLd: [faqSchema()],
 };
 
+function industryKeywords(industry: IndustryData): string[] {
+  return [
+    `${industry.noun} website design`,
+    `${industry.noun} website developer`,
+    `website for ${industry.name.toLowerCase()}`,
+    `custom ${industry.noun} website`,
+    "small business website design",
+  ];
+}
+
+function industrySchema(industry: IndustryData): Record<string, unknown>[] {
+  const canonical = `${SITE_URL}/industries/${industry.slug}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Website Design for ${industry.name}`,
+      serviceType: "Website design and development",
+      description: industry.description,
+      url: canonical,
+      provider: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      areaServed: ["PK", "Worldwide"],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: industry.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: `Websites for ${industry.name}`,
+          item: canonical,
+        },
+      ],
+    },
+  ];
+}
+
+function industrySeo(industry: IndustryData): SeoMeta {
+  const canonical = `${SITE_URL}/industries/${industry.slug}`;
+  return {
+    title: industry.title,
+    description: industry.description,
+    canonical,
+    keywords: industryKeywords(industry),
+    image: DEFAULT_IMAGE,
+    imageAlt: DEFAULT_IMAGE_ALT,
+    jsonLd: industrySchema(industry),
+  };
+}
+
 export function getSeoForPath(pathname: string): SeoMeta {
   const path = pathname.replace(/\/+$/, "") || "/";
+
+  const matchIndustry = /^\/industries\/([^/]+)$/.exec(path);
+  if (matchIndustry) {
+    const industry = getIndustry(matchIndustry[1]);
+    if (industry) return industrySeo(industry);
+  }
 
   if (path === "/") return HOME;
 

@@ -51,13 +51,13 @@ export default function PrivacyPolicyPage() {
         <Link
           to="/"
           aria-label="Launchit home"
-          className={`${FONT} text-2xl font-black tracking-tight text-[#CFFF04]`}
+          className={`${FONT} text-2xl font-black tracking-tight text-(--lime-text)`}
         >
           launchit.
         </Link>
         <Link
           to="/"
-          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-sm font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
+          className="mr-14 flex items-center gap-2 rounded-full border border-(--border-strong) px-5 py-2.5 text-base font-medium transition-colors hover:bg-(--text) hover:text-(--page) sm:mr-16"
         >
           <ArrowUpRight size={16} />
           back home
@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
       </nav>
 
       <header className="px-6 pt-14 pb-14 sm:px-10 sm:pt-20 sm:pb-16 md:px-[5.5%]">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#CFFF04]">
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-(--lime-text)">
           legal
         </p>
         <h1
@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
         >
           privacy
           <br />
-          <span className="text-[#FF2E91]">policy</span>
+          <span className="text-(--pink-text)">policy</span>
         </h1>
         <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-(--text-muted) sm:text-lg">
           The short version: we keep your information safe, use it only to work
@@ -90,7 +90,7 @@ export default function PrivacyPolicyPage() {
           {SECTIONS.map((section) => (
             <section key={section.num} className="py-8 sm:py-10">
               <div className="flex items-baseline gap-5">
-                <span className="font-num text-xs font-bold text-[#CFFF04]">
+                <span className="font-num text-xs font-bold text-(--lime-text)">
                   /{section.num}
                 </span>
                 <h2
@@ -99,7 +99,7 @@ export default function PrivacyPolicyPage() {
                   {section.title}
                 </h2>
               </div>
-              <p className="mt-4 text-[15px] leading-relaxed text-(--text-muted) sm:pl-12 sm:text-base">
+              <p className="mt-4 text-lg leading-relaxed text-(--text-muted) sm:pl-12 sm:text-base">
                 {section.body}
               </p>
               {section.action && (
@@ -110,28 +110,28 @@ export default function PrivacyPolicyPage() {
                       new Event("launchit:open-cookie-consent"),
                     )
                   }
-                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#CFFF04] px-5 py-2.5 text-sm font-semibold text-[#1b1b1b] transition-transform duration-300 hover:scale-[1.03] sm:ml-12"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#CFFF04] px-5 py-2.5 text-base font-semibold text-[#1b1b1b] transition-transform duration-300 hover:scale-[1.03] sm:ml-12"
                 >
                   {section.action.label}
-                  <ArrowUpRight size={16} strokeWidth={2.5} className="text-[#FF2E91]" />
+                  <ArrowUpRight size={16} strokeWidth={2.5} className="text-(--pink-text)" />
                 </button>
               )}
             </section>
           ))}
         </div>
 
-        <p className="mt-10 text-sm leading-relaxed text-(--text-faint)">
+        <p className="mt-10 text-base leading-relaxed text-(--text-faint)">
           Questions about your data? Email us at{" "}
           <a
             href="mailto:launchitweb@gmail.com"
-            className="font-medium text-[#CFFF04] underline-offset-4 hover:underline"
+            className="font-medium text-(--lime-text) underline-offset-4 hover:underline"
           >
             launchitweb@gmail.com
           </a>{" "}
           or{" "}
           <Link
             to="/contact"
-            className="font-medium text-[#CFFF04] underline-offset-4 hover:underline"
+            className="font-medium text-(--lime-text) underline-offset-4 hover:underline"
           >
             use our contact page
           </Link>

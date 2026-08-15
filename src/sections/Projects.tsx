@@ -2,27 +2,13 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { data, EASE } from "../utils";
 import { LazyVideo } from "../components/LazyVideo";
-
-import portfolioSite from "../assets/portfolio-site.mp4";
-import ecommerceSite from "../assets/ecommerce-site.mp4";
-import resumeBuilder from "../assets/resume-builder.mp4";
-import magurilife from "../assets/magurilife.mp4";
-import subhan from "../assets/subhan.mp4";
-import portfolioPoster from "../assets/portfolio-poster.webp";
-import ecommercePoster from "../assets/ecommerce-poster.webp";
-import resumePoster from "../assets/resume-poster.webp";
-import magurilifePoster from "../assets/magurilife-poster.webp";
-import subhanPoster from "../assets/subhan-poster.webp";
+import { PROJECT_VIDEOS } from "../lib/projectMedia";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
-const VIDEOS: Record<string, { src: string; poster: string }> = {
-  portfolio: { src: portfolioSite, poster: portfolioPoster },
-  stationary: { src: ecommerceSite, poster: ecommercePoster },
-  "naqsh-resume": { src: resumeBuilder, poster: resumePoster },
-  "meguri-life": { src: magurilife, poster: magurilifePoster },
-  "subhan-portfolio": { src: subhan, poster: subhanPoster },
-};
+const VIDEOS = PROJECT_VIDEOS;
+
+const FEATURED_SLUGS = ["naqsh-resume", "meguri-life", "paper-palace", "stationary"];
 
 function ProjectMedia({
   title,
@@ -53,17 +39,19 @@ export default function Projects() {
         transition={{ duration: 0.8, ease: EASE }}
         className="mb-10 sm:mb-14"
       >
-        <div className="flex items-center gap-2 text-[#CFFF04]">
+        <div className="flex items-center gap-2 text-(--lime-text)">
           <span className="h-px w-32 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-72" />
           <ArrowUpRight size={16} strokeWidth={2.5} />
         </div>
         <h2 className={`${FONT} mt-8 font-black tracking-tight text-(--text) leading-none text-4xl sm:text-6xl`}>
-          our <span className="text-[#FF2E91]">work</span>
+          more <span className="text-(--pink-text)">projects</span>
         </h2>
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-6">
-        {data.projects.map((project, i) => (
+        {data.projects
+          .filter((project) => !FEATURED_SLUGS.includes(project.slug))
+          .map((project, i) => (
           <motion.article
             key={project.slug}
             initial={{ opacity: 0, y: 60 }}
@@ -108,7 +96,7 @@ export default function Projects() {
                 {project.year}
               </span>
             </div>
-            <p className="mt-1 text-sm font-medium text-[#CFFF04]">{project.category}</p>
+            <p className="mt-1 text-base font-medium text-(--lime-text)">{project.category}</p>
           </motion.article>
         ))}
       </div>

@@ -1,56 +1,53 @@
-import { useState } from "react";
-
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import {
+  SiMongodb,
+  SiExpress,
+  SiReact,
+  SiNodedotjs,
+  SiMysql,
+  SiTypescript,
+  SiPython,
+  SiShopify,
+  SiGoogleads,
+  SiInstagram,
+  SiFacebook,
+} from "react-icons/si";
 import { EASE } from "../utils";
-import { LazyVideo } from "../components/LazyVideo";
 
-import galaxies from "../assets/galaxies-colliding.mp4";
-import galaxiesPoster from "../assets/galaxies-poster.webp";
-import fishes from "../assets/fishes.mp4";
-import fishesPoster from "../assets/fishes-poster.webp";
-import flowers from "../assets/flowers.mp4";
-import flowersPoster from "../assets/flowers-poster.webp";
-import her from "../assets/her.mp4";
-import herPoster from "../assets/her-poster.webp";
+import aboutCode from "../assets/about-code.jpg";
+import aboutDesign from "../assets/about-design.jpg";
+import aboutTeam from "../assets/about-team.jpg";
+import aboutPlan from "../assets/about-plan.jpg";
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
-const ACCENTS = ["#FF2E91", "#5D00FF", "#CFFF04"];
+const MARQUEE_WORDS = ["FAST", "SIMPLE", "CLEAN", "MODERN", "RELIABLE"];
 
-const MARQUEE_WORDS = ["CRAFT", "TASTE", "DETAIL", "OBSESSION", "MOTION"];
+const TOOLS = [
+  { name: "MongoDB", Icon: SiMongodb },
+  { name: "Express", Icon: SiExpress },
+  { name: "React", Icon: SiReact },
+  { name: "Node.js", Icon: SiNodedotjs },
+  { name: "SQL", Icon: SiMysql },
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "Python", Icon: SiPython },
+  { name: "Shopify", Icon: SiShopify },
+  { name: "Google Ads", Icon: SiGoogleads },
+  { name: "Instagram", Icon: SiInstagram },
+  { name: "Facebook", Icon: SiFacebook },
+];
 
-function VideoTile({
-  src,
-  poster,
-  alt,
-  rotate,
-  className,
-}: {
-  src: string;
-  poster?: string;
-  alt: string;
-  rotate: number;
-  className: string;
-}) {
-  return (
-    <div
-      className={`${className} overflow-hidden rounded-[20px] border border-(--border) bg-black`}
-      style={{ transform: `rotate(${rotate}deg)` }}
-    >
-      <LazyVideo
-        src={src}
-        poster={poster}
-        alt={alt}
-        className="h-full w-full object-cover"
-      />
-    </div>
-  );
-}
+const IMAGES = [
+  { src: aboutTeam, alt: "our team collaborating" },
+  { src: aboutCode, alt: "writing clean code" },
+  { src: aboutDesign, alt: "designing interfaces" },
+  { src: aboutPlan, alt: "planning projects" },
+];
 
 function Marquee() {
   return (
-    <div className="mt-8 overflow-hidden border-y border-(--border) py-4 sm:mt-10 sm:py-5">
+    <div className="mt-6 overflow-hidden border-y border-(--border) py-4 sm:py-5">
       <motion.div
         className="flex w-max shrink-0 items-center gap-5"
         animate={{ x: ["0%", "-50%"] }}
@@ -62,7 +59,7 @@ function Marquee() {
             className={`${FONT} flex shrink-0 items-center gap-5 text-2xl font-black uppercase tracking-tight text-(--text-faint) sm:text-3xl`}
           >
             {word}
-            <span className="text-[#CFFF04]">*</span>
+            <span className="text-(--lime-text)">*</span>
           </span>
         ))}
       </motion.div>
@@ -71,8 +68,6 @@ function Marquee() {
 }
 
 export default function About() {
-  const [colorIndex, setColorIndex] = useState(0);
-
   return (
     <section id="about" className="w-full bg-(--surface) px-6 py-12 sm:px-14 sm:py-16">
       <motion.div
@@ -90,85 +85,70 @@ export default function About() {
             transition={{ duration: 0.7, ease: EASE }}
             className="flex flex-col justify-center"
           >
-            <div className="flex items-center gap-2 text-[#CFFF04]">
+            <div className="flex items-center gap-2 text-(--lime-text)">
               <span className="h-[3px] w-20 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-32" />
               <ArrowUpRight size={16} strokeWidth={2.5} />
             </div>
-            <span className="mt-6 text-xs font-bold uppercase tracking-widest text-[#5D00FF]">
-              about us
-            </span>
             <h3
-              className={`${FONT} mt-3 max-w-xl text-3xl font-black leading-[1.05] tracking-tight sm:text-5xl`}
+              className={`${FONT} mt-3 max-w-xl text-5xl font-black leading-[1.02] tracking-tight text-(--text) sm:text-7xl`}
             >
-              <span className="text-(--text)">in the age of ai slop,</span>
-              <br />
-              <button
-                type="button"
-                onClick={() => setColorIndex((prev) => (prev + 1) % ACCENTS.length)}
-                className="transition-colors duration-300 cursor-pointer"
-                style={{ color: ACCENTS[colorIndex] }}
-              >
-                we make art.
-              </button>
+              about us
             </h3>
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
-              We are a team of three, built on a simple belief: in an era of
-              forgettable AI slop, craft still wins.
+            <Marquee />
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-(--text-soft) sm:text-xl">
+              We start by talking to you, so we understand your business and
+              what you need.
             </p>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-(--text-muted) sm:text-base">
-              Every site we build is fast, secure and made to convert. We
-              deliver solutions through close collaboration, tailored to each
-              client's requirements.
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-(--text-soft) sm:text-xl">
+              Then we design, build and test your website step by step, keeping
+              you updated along the way.
             </p>
-            <blockquote
-              className={`${FONT} mt-8 border-l-4 border-[#CFFF04] pl-4 text-xl font-black leading-snug text-(--text) sm:text-2xl`}
-            >
-              "Art is not what you see, but what you make others see."
-              <span className="mt-2 block text-sm font-bold normal-case tracking-wide text-[#CFFF04]">
-                Edgar Degas
-              </span>
-            </blockquote>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-(--text-soft) sm:text-xl">
+              When it goes live, we keep it fast, safe and easy to change, so it
+              keeps working for you.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <div className="flex flex-col gap-4 sm:gap-6">
-              <VideoTile
-                src={galaxies}
-                poster={galaxiesPoster}
-                alt="galaxies colliding"
-                rotate={-2}
-                className="h-52 sm:h-64"
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            {IMAGES.map((img, i) => (
+              <motion.img
+                key={img.alt}
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-8% 0px" }}
+                transition={{ duration: 0.7, ease: EASE, delay: i * 0.1 }}
+                className={`aspect-[4/3] w-full rounded-[20px] border border-(--border) object-cover ${
+                  i % 2 === 1 ? "sm:translate-y-6" : ""
+                }`}
               />
-              <VideoTile
-                src={fishes}
-                poster={fishesPoster}
-                alt="fish drifting through water"
-                rotate={1.5}
-                className="h-40 sm:h-48"
-              />
-            </div>
-            <div className="flex flex-col gap-4 pt-8 sm:gap-6 sm:pt-14">
-              <VideoTile
-                src={flowers}
-                poster={flowersPoster}
-                alt="flowers blooming"
-                rotate={1.5}
-                className="h-40 sm:h-48"
-              />
-              <VideoTile
-                src={her}
-                poster={herPoster}
-                alt="a quiet cinematic portrait"
-                rotate={-1.5}
-                className="h-52 sm:h-64"
-              />
-            </div>
+            ))}
           </div>
         </div>
 
-        <Marquee />
-
-        
+        <div className="mt-16 border-t border-(--border) pt-12 sm:mt-20 sm:pt-14">
+          <div className="mt-12">
+            <div className="flex items-center gap-2 text-(--lime-text)">
+              <span className="h-[3px] w-16 bg-gradient-to-r from-[#8da42a] via-[#5D00FF] to-[#FF2E91] sm:w-24" />
+              <ArrowUpRight size={16} strokeWidth={2.5} />
+            </div>
+            <h4 className={`${FONT} mt-6 text-4xl font-black tracking-tight text-(--text) sm:text-5xl`}>
+              tools &amp; languages
+            </h4>
+            <div className="mt-20 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+              {TOOLS.map((tool) => {
+                const { Icon } = tool;
+                return (
+                  <div key={tool.name}>
+                    <Icon size={60} className="text-(--text)" aria-label={tool.name} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </motion.div>
     </section>
   );
