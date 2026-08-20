@@ -1,6 +1,7 @@
 import blogAgencyImage from '../assets/blog-agency.webp'
 import blogPresenceImage from '../assets/blog-presence.webp'
 import blogSeoImage from '../assets/blog-seo.webp'
+import frame1 from '../assets/frame1.png'
 
 export const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -134,43 +135,43 @@ export const data = {
   ],
   writings: [
     {
-      title: 'What to Look for in a Web Development Agency (Before You Hire One)',
-      tag: 'Blog',
-      date: 'Mar 2026',
-      read: '7 min read',
+      title: 'The thought process behind subhanali.xyz',
+      tag: 'case study',
+      date: 'August 2026',
+      read: '5 min read',
       excerpt:
-        'Hiring a web development agency is a big decision. Here is exactly what to check before you sign, so you do not waste months and money.',
-      slug: 'what-to-look-for-in-a-web-development-agency',
-      image: blogAgencyImage,
+        'almost every artist wants a portfolio nowadays, this porfolio is a example of what we deliver.',
+      slug: 'what-you-should-expect-from-us',
+      image: frame1,
       body: [
         {
-          heading: 'Portfolio over promises',
+          heading: 'What we planned first',
           paragraphs: [
-            'Any agency can talk a good game in the sales call. Look at the actual sites they have shipped. Open them on your phone, run a speed test, check whether the images are optimised. A web development agency\u2019s portfolio is its best reference. If their own clients\u2019 sites are slow or broken, believe what you see.',
+            "The portfolio's goal was clear from the beginning. It had to be niche, creative and visually appealing for the user.",
           ],
         },
         {
-          heading: 'Ask who does the work',
+          heading: "How did we meet the wants of out client",
           paragraphs: [
-            'Big agencies often hand your project to juniors. Ask who will design and build your site, and whether you get direct access to that person. For a small business website or an e-commerce store, working directly with the person doing the work usually means better quality and clearer communication.',
+            "Communicating with client is the best way to get into the head of client. We first understood the theme our client had in this mind and then we gave it our touch",
           ],
         },
         {
-          heading: 'Check their process',
+          heading: 'The theme',
           paragraphs: [
-            'A serious web design and development agency will talk about discovery, wireframes, content strategy and QA. If the process sounds like \u201cwe will make it look good\u201d, walk away. Good process is what separates a custom website from a template with your logo on it.',
+            'The theme, styling and fonts were meant to be neo brutalist but not the generic ones that everyone uses. we came up with idea to make something with doodles, soft colors and neo brutalist theme downed to near to elegance ',
           ],
         },
         {
-          heading: 'Look for results, not features',
+          heading: 'Consistent styling',
           paragraphs: [
-            'Do not ask how many pages you will get. Ask what kind of results their clients see: faster load times, higher rankings, more sales. A web development agency that cares about performance and SEO will bring numbers, not just mockups.',
+            "The design was carried out to be consistent through out the whole site and made sure it doesnt even break at any point of the site. It was compulsory for the portfolio to stay consistent with the themes and colors.",
           ],
         },
         {
-          heading: 'The bottom line',
+          heading: 'The Verdict',
           paragraphs: [
-            'Choosing the right web development agency comes down to proof, process and access. Look at real work, talk to the actual builders and make sure your goals are measurable. Do that, and you will get a website that actually earns its cost.',
+            'After many mockups and trials, We and the client had come down to choose the current version of site as the final and implemented the final commits. For a creative agency proposing their own thoughts is the best way to improvise the product or anything they are working on',
           ],
         },
       ],

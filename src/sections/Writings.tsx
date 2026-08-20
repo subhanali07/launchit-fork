@@ -27,7 +27,7 @@ export default function Writings() {
         <h2
           className={`${FONT} mt-8 font-black tracking-tight text-(--text) leading-none text-4xl sm:text-6xl`}
         >
-          writings <span className="text-(--indigo-text)">&amp; stories</span>
+          case studies <span className="text-(--indigo-text)">&amp; writings</span>
         </h2>
       </motion.div>
 
@@ -47,7 +47,7 @@ export default function Writings() {
                   src={writing.image}
                   alt={writing.title}
                   loading="lazy"
-                  className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                  className="aspect-auto w-full h-fit object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
                 <span
                   className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${TAG_STYLES[writing.tag]}`}

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { data } from "../utils";
 import Connect from "../sections/Connect";
 import { Footer } from "../sections/Footer";
+import frame1 from "../assets/frame1.png"
 
 const FONT = "font-[Arial_Rounded_MT_Bold,Arial,sans-serif]";
 
@@ -58,7 +59,7 @@ export default function BlogPostPage() {
         <img
           src={post.image}
           alt={post.title}
-          className="mt-10 aspect-video w-full rounded-[24px] object-cover"
+          className="mt-10 w-full h-90 object-contain rounded-[24px] "
         />
 
         <div className="mt-12 space-y-12">
