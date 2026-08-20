@@ -1,4 +1,3 @@
-import blogAgencyImage from '../assets/blog-agency.webp'
 import blogPresenceImage from '../assets/blog-presence.webp'
 import blogSeoImage from '../assets/blog-seo.webp'
 import frame1 from '../assets/frame1.png'
